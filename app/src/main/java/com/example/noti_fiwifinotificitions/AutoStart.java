@@ -13,12 +13,10 @@ public class AutoStart extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-
         Intent intentStarter = new Intent(context, NotiFiService.class);
         intentStarter.putExtra("inputExtra", "Foreground Service Example in Android");
 
         ContextCompat.startForegroundService(context, intentStarter);
-
 
         Log.d("NOTIFI", "AutoStart received");
     }
