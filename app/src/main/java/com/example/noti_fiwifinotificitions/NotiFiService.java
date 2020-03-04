@@ -1,6 +1,5 @@
 package com.example.noti_fiwifinotificitions;
 
-import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -10,24 +9,20 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.IBinder;
-import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 
 public class NotiFiService extends Service {
 
+    //Variable decelerations
     public static final String CHANNEL_ID = "ONE";
     WifiChangeReceiver wifiChangeReceiver = new WifiChangeReceiver();
 
@@ -37,6 +32,7 @@ public class NotiFiService extends Service {
         return null;
     }
 
+    //OnCreate, register the receiver
     @Override
     public void onCreate() {
         super.onCreate();
@@ -46,6 +42,7 @@ public class NotiFiService extends Service {
         registerReceiver(wifiChangeReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
     }
 
+    //Runs when service is killed
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -54,6 +51,7 @@ public class NotiFiService extends Service {
         Log.d("NOTIFI","NotiFiService Stopped");
     }
 
+    //Runs on service start
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
@@ -72,6 +70,8 @@ public class NotiFiService extends Service {
         Log.d("NOTIFI", "NotiFiService onStartCommand() ran.");
         return START_NOT_STICKY;
     }
+
+    //For creating a notification the service is running
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel serviceChannel = new NotificationChannel(
@@ -85,7 +85,7 @@ public class NotiFiService extends Service {
     }
 
     private class WifiChangeReceiver extends BroadcastReceiver {
-        String ssid = "";
+        String SSID = "";
         @Override
         public void onReceive(Context context, Intent intent) {
 
@@ -93,41 +93,11 @@ public class NotiFiService extends Service {
                 if (ConnectivityManager.TYPE_WIFI == netInfo.getType()) {
                     WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
                     WifiInfo info = wifiManager.getConnectionInfo();
-                    ssid = info.getSSID();
+                    SSID = info.getSSID();
                 }
-            /*while(!isConnected(context)){
-                Log.d("NOTIFI", "Sleeping...");
-                SystemClock.sleep(1000);
-                Log.d("NOTIFI", "Sleeping done");
-            }
-            WifiManager manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-            if (manager.isWifiEnabled()) {
-                WifiInfo wifiInfo = manager.getConnectionInfo();
-                if (wifiInfo != null) {
-                    NetworkInfo.DetailedState state = WifiInfo.getDetailedStateOf(wifiInfo.getSupplicantState());
-                    if (state == NetworkInfo.DetailedState.CONNECTED || state == NetworkInfo.DetailedState.OBTAINING_IPADDR) {
-                        ssid = wifiInfo.getSSID();
-                    }
-                }
-            }
 
-             */
-
-                Toast.makeText(getApplicationContext(), "WIFI CHANGED to: " + ssid, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "WIFI CHANGED to: " + SSID, Toast.LENGTH_LONG).show();
             }
         }
-
-        //===============================
-        public boolean isConnected(Context context) {
-            ConnectivityManager connectivityManager = (ConnectivityManager)
-                    context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo = null;
-            if (connectivityManager != null) {
-                networkInfo = connectivityManager.getActiveNetworkInfo();
-            }
-
-            return networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED;
-        }
-
     }
 

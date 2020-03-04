@@ -5,11 +5,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -33,9 +30,8 @@ public class MainActivity extends AppCompatActivity {
         ContextCompat.startForegroundService(this, intentStarter);
     }
 
+    //Get wifi on button press
     public void click(View view){
-        String ssid ="Test";
-
         Toast.makeText(getApplicationContext(), "WIFI CHANGED to: " + tryToReadSSID(), Toast.LENGTH_LONG).show();
     }
 
@@ -46,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Get SSID
     private String tryToReadSSID() {
         String ssid = "";
         //If requested permission isn't Granted yet
