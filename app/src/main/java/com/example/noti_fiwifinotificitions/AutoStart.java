@@ -4,9 +4,12 @@ package com.example.noti_fiwifinotificitions;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.core.content.ContextCompat;
+
+import org.json.JSONArray;
 
 public class AutoStart extends BroadcastReceiver {
 
@@ -19,6 +22,7 @@ public class AutoStart extends BroadcastReceiver {
         ContextCompat.startForegroundService(context, intentStarter);
 
         Log.d("NOTIFI", "AutoStart received");
+
     }
 
 }

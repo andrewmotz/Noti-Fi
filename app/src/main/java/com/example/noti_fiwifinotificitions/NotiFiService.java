@@ -9,6 +9,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
@@ -17,14 +18,24 @@ import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 public class NotiFiService extends Service {
 
     //Variable decelerations
     public static final String CHANNEL_ID = "ONE";
+    public static final String KEY_LIST_PREF = "KEY_LIST_PREF";
+
+
+    //Variables
+    SharedPreferences sharedPreferences;
+
+    //Testing
     WifiChangeReceiver wifiChangeReceiver = new WifiChangeReceiver();
+
 
     @Nullable
     @Override
@@ -37,6 +48,7 @@ public class NotiFiService extends Service {
     public void onCreate() {
         super.onCreate();
         Log.d("NOTIFI", "NotiFiService onCreate() ran.");
+        sharedPreferences = getSharedPreferences(KEY_LIST_PREF, MODE_PRIVATE);
 
         //Wifi stuff
         registerReceiver(wifiChangeReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
@@ -48,7 +60,7 @@ public class NotiFiService extends Service {
         super.onDestroy();
         stopForeground(true); //true will remove notification
         unregisterReceiver(wifiChangeReceiver);
-        Log.d("NOTIFI","NotiFiService Stopped");
+        Log.d("NOTIFI", "NotiFiService Stopped");
     }
 
     //Runs on service start
@@ -84,20 +96,46 @@ public class NotiFiService extends Service {
         }
     }
 
+    private void createNotification(String description){
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.squid)
+                .setContentTitle("Noti-Fi Alert")
+                .setContentText(description)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(description))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        notificationManager.notify(123,builder.build());
+    }
+
     private class WifiChangeReceiver extends BroadcastReceiver {
-        String SSID = "";
+        String currentSSID = "";
+
         @Override
         public void onReceive(Context context, Intent intent) {
 
-                NetworkInfo netInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
-                if (ConnectivityManager.TYPE_WIFI == netInfo.getType()) {
-                    WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-                    WifiInfo info = wifiManager.getConnectionInfo();
-                    SSID = info.getSSID();
-                }
-
-                Toast.makeText(getApplicationContext(), "WIFI CHANGED to: " + SSID, Toast.LENGTH_LONG).show();
+            NetworkInfo netInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+            if (ConnectivityManager.TYPE_WIFI == netInfo.getType()) {
+                WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+                WifiInfo info = wifiManager.getConnectionInfo();
+                currentSSID = info.getSSID();
             }
+
+            Toast.makeText(getApplicationContext(), "WIFI CHANGED to: " + currentSSID, Toast.LENGTH_LONG).show();
+
+            //Compare
+            String[] ssids = sharedPreferences.getString("SSIDS", "").split("⌇");
+            String[] notificationDescriptions = sharedPreferences.getString("DESCRIPTIONS", "").split("⌇");
+
+            for (int i = 0; i < ssids.length; i++) {
+                if (currentSSID.equals(ssids[i])) {
+                    createNotification(notificationDescriptions[i]);
+                }
+            }
+            //createNotification("Hello boi");
         }
     }
+}
 

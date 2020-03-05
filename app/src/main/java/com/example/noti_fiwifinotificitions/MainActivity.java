@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private static final int LOCATION = 1;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +30,17 @@ public class MainActivity extends AppCompatActivity {
         Intent intentStarter = new Intent(this, NotiFiService.class);
         intentStarter.putExtra("inputExtra", "Foreground Service Example in Android");
         ContextCompat.startForegroundService(this, intentStarter);
+        sharedPreferences = getSharedPreferences(NotiFiService.KEY_LIST_PREF, MODE_PRIVATE);
     }
 
     //Get wifi on button press
     public void click(View view){
         Toast.makeText(getApplicationContext(), "WIFI CHANGED to: " + tryToReadSSID(), Toast.LENGTH_LONG).show();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("SSIDS",tryToReadSSID());
+        editor.putString("DESCRIPTIONS","TEST Description");
+        editor.apply();
+
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
