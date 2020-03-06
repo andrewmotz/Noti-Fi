@@ -25,15 +25,12 @@ import androidx.core.app.NotificationManagerCompat;
 
 public class NotiFiService extends Service {
 
-    //Variable decelerations
+    //Constant Variable decelerations
     public static final String CHANNEL_ID = "ONE";
     public static final String KEY_LIST_PREF = "KEY_LIST_PREF";
 
-
     //Variables
     SharedPreferences sharedPreferences;
-
-    //Testing
     WifiChangeReceiver wifiChangeReceiver = new WifiChangeReceiver();
 
 
@@ -43,14 +40,15 @@ public class NotiFiService extends Service {
         return null;
     }
 
-    //OnCreate, register the receiver
+    //OnCreate, also runs on service start, register the receiver
     @Override
     public void onCreate() {
         super.onCreate();
         Log.d("NOTIFI", "NotiFiService onCreate() ran.");
         sharedPreferences = getSharedPreferences(KEY_LIST_PREF, MODE_PRIVATE);
 
-        //Wifi stuff
+        //Register broadcast receiver for android.net.conn.CONNECTIVITY_CHANGE. This takes the private class
+        //below and the type of broadcast your looking for.
         registerReceiver(wifiChangeReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
     }
 
@@ -64,6 +62,7 @@ public class NotiFiService extends Service {
     }
 
     //Runs on service start
+    //Part of this was taken from stack overflow, so unsure why return START_NOT_STICKY
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
@@ -84,6 +83,7 @@ public class NotiFiService extends Service {
     }
 
     //For creating a notification the service is running
+    //This was copied from stack overflow, idk what it does.
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel serviceChannel = new NotificationChannel(
@@ -96,6 +96,7 @@ public class NotiFiService extends Service {
         }
     }
 
+    //Method that creates a notification with a custom description
     private void createNotification(String description){
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
@@ -110,12 +111,15 @@ public class NotiFiService extends Service {
         notificationManager.notify(123,builder.build());
     }
 
+    //Private class that works with broadcast receiver from above.
     private class WifiChangeReceiver extends BroadcastReceiver {
         String currentSSID = "";
 
+        //onReceive runs when a broadcast is received.
         @Override
         public void onReceive(Context context, Intent intent) {
 
+            //Get the SSID
             NetworkInfo netInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
             if (ConnectivityManager.TYPE_WIFI == netInfo.getType()) {
                 WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
@@ -123,6 +127,7 @@ public class NotiFiService extends Service {
                 currentSSID = info.getSSID();
             }
 
+            //Toast for debug
             Toast.makeText(getApplicationContext(), "WIFI CHANGED to: " + currentSSID, Toast.LENGTH_LONG).show();
 
             //Compare
