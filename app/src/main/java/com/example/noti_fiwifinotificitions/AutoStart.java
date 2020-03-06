@@ -13,6 +13,8 @@ import org.json.JSONArray;
 
 public class AutoStart extends BroadcastReceiver {
 
+    //This runs when android.intent.action.BOOT_COMPLETED is received.
+    //Declared in android manifest.
     @Override
     public void onReceive(Context context, Intent intent) {
 

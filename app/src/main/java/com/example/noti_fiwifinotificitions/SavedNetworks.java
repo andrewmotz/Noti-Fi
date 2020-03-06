@@ -34,4 +34,12 @@ public class SavedNetworks extends AppCompatActivity {
     public void addNetwork(String ssid, String desc){
 
     }
-}
+
+    public String[] getSSIDArray(){
+        return new String[0];
+    }
+
+    public String[] getDescArray(){
+        return new String[0];
+    }
+ }
