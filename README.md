@@ -1,9 +1,9 @@
 # Noti-Fi
-##About
+## About
 Enter about here
 
-##Privacy
+## Privacy
 Enter privacy here
 
-##License
+## License
 License here
