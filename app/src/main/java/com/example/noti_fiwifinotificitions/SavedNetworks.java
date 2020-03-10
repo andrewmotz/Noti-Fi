@@ -29,8 +29,17 @@ public class SavedNetworks extends AppCompatActivity {
         return  false;
     }
 
-    public String getDesc(String SSD){
-        return "";
+    public String getDesc(String checkSSID){
+
+        String[] SSIDArray = sharedPreferences.getString("SSIDS", "").split("⌇");
+        String[] notificationDescriptionsArray = sharedPreferences.getString("DESCRIPTIONS", "").split("⌇");
+
+        for(int i = 0; i < SSIDArray.length;i++){
+            if(checkSSID.equals(SSIDArray[i])){
+                return notificationDescriptionsArray[i];
+            }
+        }
+        return "Network not found: Something went wrong.";
     }
 
     public void removeNetwork(String ssid){
@@ -42,10 +51,10 @@ public class SavedNetworks extends AppCompatActivity {
     }
 
     public String[] getSSIDArray(){
-        return new String[0];
+        return sharedPreferences.getString("SSIDS", "").split("⌇");
     }
 
     public String[] getDescArray(){
-        return new String[0];
+        return sharedPreferences.getString("DESCRIPTIONS", "").split("⌇");
     }
  }
