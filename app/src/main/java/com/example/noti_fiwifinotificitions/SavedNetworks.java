@@ -27,17 +27,17 @@ public class SavedNetworks extends AppCompatActivity {
     public SavedNetworks(SharedPreferences sharedIn){
         sharedPreferences = sharedIn;
 
-        Set<String> setSSID = sharedPreferences.getStringSet(SSID_LIST, null);
-        Set<String> setDesc = sharedPreferences.getStringSet(DESC_LIST, null);
-        if(ssidList == null) {
-            ssidList = new ArrayList<String>(setSSID);
-            descList = new ArrayList<String>(setDesc);
-        }else {
+        Set<String> SSIDSTringSet = sharedPreferences.getStringSet(SSID_LIST, null);
+        Set<String> descStringSet = sharedPreferences.getStringSet(DESC_LIST, null);
+        if(SSIDSTringSet != null) {
+            ssidList = new ArrayList<String>(SSIDSTringSet);
+            descList = new ArrayList<String>(descStringSet);
+        }else{
             Log.d("NOTIFI","EMPTY Shared Preference");
             ssidList = new ArrayList<>();
             descList = new ArrayList<>();
-            ssidList.add("EMPTY");
-            descList.add("EMPTY");
+            ssidList.add("This is where the SSID will go");
+            descList.add("This is where the description will go");
         }
     }
 
