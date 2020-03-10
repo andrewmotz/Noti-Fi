@@ -130,15 +130,10 @@ public class NotiFiService extends Service {
             //Toast for debug
             Toast.makeText(getApplicationContext(), "WIFI CHANGED to: " + currentSSID, Toast.LENGTH_LONG).show();
 
-            //Compare
-            String[] ssids = sharedPreferences.getString("SSIDS", "").split("⌇");
-            String[] notificationDescriptions = sharedPreferences.getString("DESCRIPTIONS", "").split("⌇");
-
-            for (int i = 0; i < ssids.length; i++) {
-                if (currentSSID.equals(ssids[i])) {
-                    createNotification(notificationDescriptions[i]);
+            SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
+                if (savedNetworks.isSaved(currentSSID)) {
+                    createNotification(savedNetworks.getDesc(currentSSID));
                 }
-            }
             //createNotification("Hello boi");
         }
     }

@@ -3,43 +3,60 @@ package com.example.noti_fiwifinotificitions;
  */
 
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 public class SavedNetworks extends AppCompatActivity {
 
-    public final String KEY_LIST_PREF = "KEY_LIST_PREF";
-
+    public static final String SSID_LIST = "SSID_LIST";
+    public static final String DESC_LIST = "DESC_LIST";
     private SharedPreferences sharedPreferences;
 
-    public SavedNetworks(){
-        sharedPreferences = getSharedPreferences(KEY_LIST_PREF, MODE_PRIVATE);
+    private ArrayList<String> descList;
+    private ArrayList<String> ssidList;
+
+    //Constructor
+    public SavedNetworks(SharedPreferences sharedIn){
+        sharedPreferences = sharedIn;
+
+        Set<String> setSSID = sharedPreferences.getStringSet(SSID_LIST, null);
+        Set<String> setDesc = sharedPreferences.getStringSet(DESC_LIST, null);
+        if(ssidList == null) {
+            ssidList = new ArrayList<String>(setSSID);
+            descList = new ArrayList<String>(setDesc);
+        }else {
+            Log.d("NOTIFI","EMPTY Shared Preference");
+            ssidList = new ArrayList<>();
+            descList = new ArrayList<>();
+            ssidList.add("EMPTY");
+            descList.add("EMPTY");
+        }
     }
 
     public boolean isSaved(String checkSSID){
-
-        String[] SSIDArray = sharedPreferences.getString("SSIDS", "").split("⌇");
-
-        for(int i = 0; i < SSIDArray.length;i++){
-            if(checkSSID.equals(SSIDArray[i])){
-                return true;
-            }
-        }
-        return  false;
+       for(String saveSSID : ssidList){
+           if(saveSSID.equals(checkSSID)){
+               return true;
+           }
+       }
+       return false;
     }
 
     public String getDesc(String checkSSID){
-
-        String[] SSIDArray = sharedPreferences.getString("SSIDS", "").split("⌇");
-        String[] notificationDescriptionsArray = sharedPreferences.getString("DESCRIPTIONS", "").split("⌇");
-
-        for(int i = 0; i < SSIDArray.length;i++){
-            if(checkSSID.equals(SSIDArray[i])){
-                return notificationDescriptionsArray[i];
+        for(int i = 0; i < ssidList.size(); i++){
+            if(ssidList.get(i).equals(checkSSID)){
+                return descList.get(i);
             }
         }
-        return "Network not found: Something went wrong.";
+        return "ERROR: NO DESC SET";
     }
 
     public void removeNetwork(String ssid){
@@ -47,14 +64,45 @@ public class SavedNetworks extends AppCompatActivity {
     }
 
     public void addNetwork(String ssid, String desc){
+        ssidList.add(ssid);
+        descList.add(desc);
 
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Set<String> ssidSet = new HashSet<String>();
+        Set<String> descSet = new HashSet<String>();
+        ssidSet.addAll(ssidList);
+        descSet.addAll(descList);
+        editor.putStringSet(SSID_LIST, ssidSet);
+        editor.putStringSet(DESC_LIST, descSet);
+        editor.apply();
+        Log.d("NOTIFI", "ADD method called");
     }
 
-    public String[] getSSIDArray(){
-        return sharedPreferences.getString("SSIDS", "").split("⌇");
+    public List<String> getSSIDList(){
+        return ssidList;
     }
 
-    public String[] getDescArray(){
-        return sharedPreferences.getString("DESCRIPTIONS", "").split("⌇");
+    public List<String> getCombinedList(){
+        String[] combined = new String[ssidList.size()];
+
+        for(int i = 0; i < ssidList.size(); i++){
+            combined[i] = "SSID: " + ssidList.get(i) + "\nDescription: " + descList.get(i);
+        }
+        return Arrays.asList(combined);
     }
  }
+
+ /*
+
+ //Retrieve the values
+Set<String> set = prefs.getStringSet("yourKey", null);
+List<String> sample=new ArrayList<String>(set);
+
+SharedPreferences prefs=this.getSharedPreferences("yourPrefsKey",Context.MODE_PRIVATE);
+Editor edit=prefs.edit();
+
+Set<String> set = new HashSet<String>();
+set.addAll(your Arraylist Name);
+edit.putStringSet("yourKey", set);
+edit.commit();
+  */

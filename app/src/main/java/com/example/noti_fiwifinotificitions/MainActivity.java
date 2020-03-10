@@ -14,12 +14,19 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
+
     private static final int LOCATION = 1;
+    public static final String NOTI_FI_PREF = "NOTI_FI_PREF";
     SharedPreferences sharedPreferences;
+    ListView savedNotiFisList;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +38,27 @@ public class MainActivity extends AppCompatActivity {
         intentStarter.putExtra("inputExtra", "Foreground Service Example in Android");
         ContextCompat.startForegroundService(this, intentStarter);
         sharedPreferences = getSharedPreferences(NotiFiService.KEY_LIST_PREF, MODE_PRIVATE);
+        textView = findViewById(R.id.textView);
+
+        SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
+
+        //Fill list
+        savedNotiFisList = findViewById(R.id.savedNotiFisList);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, savedNetworks.getCombinedList());
+        savedNotiFisList.setAdapter(arrayAdapter);
     }
 
     //Get wifi on button press
     public void click(View view){
         Toast.makeText(getApplicationContext(), "WIFI CHANGED to: " + tryToReadSSID(), Toast.LENGTH_LONG).show();
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("SSIDS",tryToReadSSID());
-        editor.putString("DESCRIPTIONS","TEST Description");
-        editor.apply();
+        SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
+        savedNetworks.addNetwork(tryToReadSSID(),"TEST DESC");
+        textView.setText(savedNetworks.getCombinedList().toString());
+    }
 
+    public void test(View view){
+        SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
+        textView.setText(savedNetworks.getCombinedList().toString());
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
