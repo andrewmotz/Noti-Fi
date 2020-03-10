@@ -50,7 +50,7 @@ public class SavedNetworks extends AppCompatActivity {
     //Returns a boolean dependant on if a NotiFi has been saved with the matching SSID
     public boolean isSaved(String checkSSID){
        for(String saveSSID : ssidList){
-           if(saveSSID.equals(checkSSID)){
+           if(saveSSID.substring(1).equals(checkSSID)){
                return true;
            }
        }
