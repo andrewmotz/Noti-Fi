@@ -1,5 +1,6 @@
 package com.example.noti_fiwifinotificitions;
-/* Description
+/* Class is used to access Saved networks and descriptions through
+* the sharedPreferences.
  */
 
 import android.content.SharedPreferences;
@@ -128,18 +129,3 @@ public class SavedNetworks extends AppCompatActivity {
         return Arrays.asList(combined);
     }
  }
-
- /*
-
- //Retrieve the values
-Set<String> set = prefs.getStringSet("yourKey", null);
-List<String> sample=new ArrayList<String>(set);
-
-SharedPreferences prefs=this.getSharedPreferences("yourPrefsKey",Context.MODE_PRIVATE);
-Editor edit=prefs.edit();
-
-Set<String> set = new HashSet<String>();
-set.addAll(your Arraylist Name);
-edit.putStringSet("yourKey", set);
-edit.commit();
-  */
