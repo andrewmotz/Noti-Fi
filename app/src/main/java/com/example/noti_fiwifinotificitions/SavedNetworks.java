@@ -16,10 +16,12 @@ import java.util.Set;
 
 public class SavedNetworks extends AppCompatActivity {
 
+    //Constants
     public static final String SSID_LIST = "SSID_LIST";
     public static final String DESC_LIST = "DESC_LIST";
-    private SharedPreferences sharedPreferences;
 
+    //Variables
+    private SharedPreferences sharedPreferences;
     private ArrayList<String> descList;
     private ArrayList<String> ssidList;
 
@@ -27,10 +29,10 @@ public class SavedNetworks extends AppCompatActivity {
     public SavedNetworks(SharedPreferences sharedIn){
         sharedPreferences = sharedIn;
 
-        Set<String> SSIDSTringSet = sharedPreferences.getStringSet(SSID_LIST, null);
+        Set<String> SSID_StringSet = sharedPreferences.getStringSet(SSID_LIST, null);
         Set<String> descStringSet = sharedPreferences.getStringSet(DESC_LIST, null);
-        if(SSIDSTringSet != null) {
-            ssidList = new ArrayList<String>(SSIDSTringSet);
+        if(SSID_StringSet != null) {
+            ssidList = new ArrayList<String>(SSID_StringSet);
             descList = new ArrayList<String>(descStringSet);
         }else{
             Log.d("NOTIFI","EMPTY Shared Preference");
@@ -41,6 +43,7 @@ public class SavedNetworks extends AppCompatActivity {
         }
     }
 
+    //Returns a boolean dependant on if a NotiFi has been saved with the matching SSID
     public boolean isSaved(String checkSSID){
        for(String saveSSID : ssidList){
            if(saveSSID.equals(checkSSID)){
@@ -50,6 +53,7 @@ public class SavedNetworks extends AppCompatActivity {
        return false;
     }
 
+    //Returns the description to a matching SSID
     public String getDesc(String checkSSID){
         for(int i = 0; i < ssidList.size(); i++){
             if(ssidList.get(i).equals(checkSSID)){
@@ -59,17 +63,19 @@ public class SavedNetworks extends AppCompatActivity {
         return "ERROR: NO DESC SET";
     }
 
+    //Removes a NotiFi from SharedPreferences
     public void removeNetwork(String ssid){
 
     }
 
+    //Adds a new NotiFi
     public void addNetwork(String ssid, String desc){
         ssidList.add(ssid);
         descList.add(desc);
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        Set<String> ssidSet = new HashSet<String>();
-        Set<String> descSet = new HashSet<String>();
+        Set<String> ssidSet = new HashSet<>();
+        Set<String> descSet = new HashSet<>();
         ssidSet.addAll(ssidList);
         descSet.addAll(descList);
         editor.putStringSet(SSID_LIST, ssidSet);
@@ -78,10 +84,12 @@ public class SavedNetworks extends AppCompatActivity {
         Log.d("NOTIFI", "ADD method called");
     }
 
+    //ssidList getter
     public List<String> getSSIDList(){
         return ssidList;
     }
 
+    //Returns a list of strings with the SSID and description in one string
     public List<String> getCombinedList(){
         String[] combined = new String[ssidList.size()];
 

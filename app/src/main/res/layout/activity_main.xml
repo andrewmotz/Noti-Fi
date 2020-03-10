@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.500684" />
 
     <ListView
         android:id="@+id/savedNotiFisList"
@@ -36,8 +36,9 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:text="Saved Noti-Fi's"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        tools:layout_editor_absoluteX="53dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
