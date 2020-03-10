@@ -4,6 +4,7 @@ package com.example.noti_fiwifinotificitions;
 
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.util.Pair;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +25,7 @@ public class SavedNetworks extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private ArrayList<String> descList;
     private ArrayList<String> ssidList;
+    private static int count = 0;
 
     //Constructor
     public SavedNetworks(SharedPreferences sharedIn){
@@ -31,6 +33,7 @@ public class SavedNetworks extends AppCompatActivity {
 
         Set<String> SSID_StringSet = sharedPreferences.getStringSet(SSID_LIST, null);
         Set<String> descStringSet = sharedPreferences.getStringSet(DESC_LIST, null);
+
         if(SSID_StringSet != null) {
             ssidList = new ArrayList<String>(SSID_StringSet);
             descList = new ArrayList<String>(descStringSet);
@@ -38,8 +41,9 @@ public class SavedNetworks extends AppCompatActivity {
             Log.d("NOTIFI","EMPTY Shared Preference");
             ssidList = new ArrayList<>();
             descList = new ArrayList<>();
-            ssidList.add("This is where the SSID will go");
-            descList.add("This is where the description will go");
+            ssidList.add(count + "This is where the SSID will go");
+            descList.add(count + "This is where the description will go");
+            count++;
         }
     }
 
@@ -56,8 +60,8 @@ public class SavedNetworks extends AppCompatActivity {
     //Returns the description to a matching SSID
     public String getDesc(String checkSSID){
         for(int i = 0; i < ssidList.size(); i++){
-            if(ssidList.get(i).equals(checkSSID)){
-                return descList.get(i);
+            if(ssidList.get(i).substring(1).equals(checkSSID)){
+                return descList.get(i).substring(1);
             }
         }
         return "ERROR: NO DESC SET";
@@ -65,13 +69,33 @@ public class SavedNetworks extends AppCompatActivity {
 
     //Removes a NotiFi from SharedPreferences
     public void removeNetwork(String ssid){
-
+        for(int i = 0; i < ssidList.size(); i++){
+            if(ssidList.get(i).substring(1).equals(ssid)){
+                for(int y = 0; y < descList.size(); y++){
+                    if(ssidList.get(i).charAt(0) == descList.get(y).charAt(0)){
+                        ssidList.remove(i);
+                        descList.remove(y);
+                        break;
+                    }
+                }
+            }
+        }
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Set<String> ssidSet = new HashSet<>();
+        Set<String> descSet = new HashSet<>();
+        ssidSet.addAll(ssidList);
+        descSet.addAll(descList);
+        editor.putStringSet(SSID_LIST, ssidSet);
+        editor.putStringSet(DESC_LIST, descSet);
+        editor.apply();
+        Log.d("NOTIFI", "Remove method called");
     }
 
     //Adds a new NotiFi
     public void addNetwork(String ssid, String desc){
-        ssidList.add(ssid);
-        descList.add(desc);
+        ssidList.add(count + ssid);
+        descList.add(count + desc);
+        count++;
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Set<String> ssidSet = new HashSet<>();
@@ -94,7 +118,12 @@ public class SavedNetworks extends AppCompatActivity {
         String[] combined = new String[ssidList.size()];
 
         for(int i = 0; i < ssidList.size(); i++){
-            combined[i] = "SSID: " + ssidList.get(i) + "\nDescription: " + descList.get(i);
+            for(int y = 0; y < descList.size(); y++) {
+                if(ssidList.get(i).charAt(0) == descList.get(y).charAt(0)) {
+                    combined[i] = "SSID: " + ssidList.get(i).substring(1) + "\nDescription: " + descList.get(y).substring(1) + ".";
+                    break;
+                }
+            }
         }
         return Arrays.asList(combined);
     }

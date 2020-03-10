@@ -52,13 +52,14 @@ public class MainActivity extends AppCompatActivity {
     public void click(View view){
         Toast.makeText(getApplicationContext(), "WIFI CHANGED to: " + tryToReadSSID(), Toast.LENGTH_LONG).show();
         SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
-        savedNetworks.addNetwork(tryToReadSSID(),"TEST DESC");
+        savedNetworks.addNetwork(tryToReadSSID(),"TEST DESC for" + tryToReadSSID());
         textView.setText(savedNetworks.getCombinedList().toString());
     }
 
-    public void test(View view){
+    public void remove(View view){
         SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
-        textView.setText(savedNetworks.getCombinedList().toString());
+        textView.setText("removed" + tryToReadSSID());
+        savedNetworks.removeNetwork(tryToReadSSID());
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
