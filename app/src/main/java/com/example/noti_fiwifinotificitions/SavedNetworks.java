@@ -17,9 +17,15 @@ public class SavedNetworks extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(KEY_LIST_PREF, MODE_PRIVATE);
     }
 
-    public boolean isSaved(String ssid){
+    public boolean isSaved(String checkSSID){
 
-        String[] ssids = sharedPreferences.getString("SSIDS", "").split("⌇");
+        String[] SSIDArray = sharedPreferences.getString("SSIDS", "").split("⌇");
+
+        for(int i = 0; i < SSIDArray.length;i++){
+            if(checkSSID.equals(SSIDArray[i])){
+                return true;
+            }
+        }
         return  false;
     }
 
