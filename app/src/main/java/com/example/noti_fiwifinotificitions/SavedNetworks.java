@@ -21,12 +21,13 @@ public class SavedNetworks extends AppCompatActivity {
     //Constants
     public static final String SSID_LIST = "SSID_LIST";
     public static final String DESC_LIST = "DESC_LIST";
+    public static final String COUNT = "COUNT";
 
     //Variables
     private SharedPreferences sharedPreferences;
     private ArrayList<String> descList;
     private ArrayList<String> ssidList;
-    private static int count = 0;
+    private int count;
 
     //Constructor
     public SavedNetworks(SharedPreferences sharedIn){
@@ -34,6 +35,7 @@ public class SavedNetworks extends AppCompatActivity {
 
         Set<String> SSID_StringSet = sharedPreferences.getStringSet(SSID_LIST, null);
         Set<String> descStringSet = sharedPreferences.getStringSet(DESC_LIST, null);
+        count = sharedPreferences.getInt(COUNT, 0);
 
         if(SSID_StringSet != null) {
             ssidList = new ArrayList<String>(SSID_StringSet);
@@ -86,6 +88,7 @@ public class SavedNetworks extends AppCompatActivity {
         Set<String> descSet = new HashSet<>();
         ssidSet.addAll(ssidList);
         descSet.addAll(descList);
+        editor.putInt(COUNT, count);
         editor.putStringSet(SSID_LIST, ssidSet);
         editor.putStringSet(DESC_LIST, descSet);
         editor.apply();
@@ -94,19 +97,22 @@ public class SavedNetworks extends AppCompatActivity {
 
     //Adds a new NotiFi
     public void addNetwork(String ssid, String desc){
-        ssidList.add(count + ssid);
-        descList.add(count + desc);
-        count++;
+        if(!isSaved(ssid)) {
+            ssidList.add(count + ssid);
+            descList.add(count + desc);
+            count++;
 
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Set<String> ssidSet = new HashSet<>();
-        Set<String> descSet = new HashSet<>();
-        ssidSet.addAll(ssidList);
-        descSet.addAll(descList);
-        editor.putStringSet(SSID_LIST, ssidSet);
-        editor.putStringSet(DESC_LIST, descSet);
-        editor.apply();
-        Log.d("NOTIFI", "ADD method called");
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            Set<String> ssidSet = new HashSet<>();
+            Set<String> descSet = new HashSet<>();
+            ssidSet.addAll(ssidList);
+            descSet.addAll(descList);
+            editor.putInt(COUNT, count);
+            editor.putStringSet(SSID_LIST, ssidSet);
+            editor.putStringSet(DESC_LIST, descSet);
+            editor.apply();
+            Log.d("NOTIFI", "ADD method called");
+        }
     }
 
     //ssidList getter
