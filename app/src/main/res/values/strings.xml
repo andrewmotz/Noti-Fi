@@ -1,10 +1,19 @@
 <resources>
     <string name="app_name">Noti-Fi</string>
 
+    //activity_main layout Strings
+    <string name="notifi_list_title">Saved Noti-Fi\'s</string>
+    <string name="new_notifi_button">CREATE NEW NOTI-FI</string>
+    <string name="add_current_button">ADD CURRENT NETWORK</string>
+    <string name="manage_favs_button">MANAGE FAVOURITES</string>
+    <string name="remove_current_button">REMOVE CURRENT</string>
+
+
     //activity_add_notification layout
     <string name="edit_title">Title:</string>
     <string name="edit_content">Content:</string>
     <string name="list_of_networks">Network:</string>
     <string name="save_button">SAVE</string>
+
 
 </resources>
