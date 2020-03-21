@@ -85,4 +85,11 @@ public class MainActivity extends AppCompatActivity {
         }
         return ssid;
     }
+
+    public void createNotifi(View view) {
+
+        Intent intent = new Intent(this, AddNotificationActivity.class);
+        startActivity(intent);
+
+    }
 }
