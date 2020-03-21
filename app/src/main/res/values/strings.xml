@@ -17,6 +17,7 @@
     <string name="canceL_button">CANCEL</string>
     <string name="enter_title">Enter title of notification...</string>
     <string name="enter_content_hint">Enter notification....</string>
+    <string name="custom_create_button">Custom Network</string>
 
 
 </resources>
