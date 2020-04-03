@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -22,6 +23,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
     Spinner favSpinner;
     ListView favListView;
+    EditText manualEntryEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
         favSpinner = findViewById(R.id.favNetworkSpinner);
         favListView = findViewById(R.id.favListView);
+        manualEntryEditText = findViewById(R.id.manualSSIDEditText);
 
         //Fill spinner
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
@@ -42,14 +45,20 @@ public class FavoritesActivity extends AppCompatActivity {
         favListView.setAdapter(listViewAdapter);
     }
 
-    public void BackButton(View view) {
+    public void backButton(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void AddCurrentNetwork(View view) {
+    public void addCurrentNetwork(View view) {
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         favSSIDS.addFavSSID(tryToReadSSID());
+    }
+
+    public void manualEntry(View view){
+        FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
+        favSSIDS.addFavSSID("\"" + manualEntryEditText.getText().toString() + "\"");
+        manualEntryEditText.setText("");
     }
 
     //Get SSID
