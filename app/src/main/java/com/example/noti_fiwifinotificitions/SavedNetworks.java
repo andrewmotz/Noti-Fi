@@ -5,8 +5,6 @@ package com.example.noti_fiwifinotificitions;
 
 import android.content.SharedPreferences;
 import android.util.Log;
-import android.util.Pair;
-import android.widget.ArrayAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,9 +13,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 public class SavedNetworks extends AppCompatActivity {
@@ -39,14 +35,14 @@ public class SavedNetworks extends AppCompatActivity {
             Gson gson = new Gson();
             notiFiObjects = gson.fromJson(json,new TypeToken<List<NotiFiObject>>(){}.getType());
         }else{
-            Log.d("NOTIFI","EMPTY Shared Preference");
+            Log.d("NOTIFI","EMPTY Shared Preference NOTIFIS");
             notiFiObjects = new ArrayList<>();
             notiFiObjects.add(new NotiFiObject("EMTPY SSID", "EMPTY DESC"));
         }
     }
 
     //Returns a boolean dependant on if a NotiFi has been saved with the matching SSID
-    public boolean isSaved(String checkSSID){
+    public boolean notifiIsSaved(String checkSSID){
        for(NotiFiObject currentObject  : notiFiObjects){
            if(currentObject.getSSID().equals(checkSSID)){
                return true;
@@ -56,7 +52,7 @@ public class SavedNetworks extends AppCompatActivity {
     }
 
     //Returns the description to a matching SSID
-    public String getDesc(String checkSSID){
+    public String getNotiFiDesc(String checkSSID){
         for(int i = 0; i < notiFiObjects.size(); i++){
             if(notiFiObjects.get(i).getSSID().equals(checkSSID)){
                 return notiFiObjects.get(i).getDESC();
@@ -66,7 +62,7 @@ public class SavedNetworks extends AppCompatActivity {
     }
 
     //Removes a NotiFi from SharedPreferences
-    public void removeNetwork(String checkSSID){
+    public void removeNotiFi(String checkSSID){
         for(int i = 0; i < notiFiObjects.size(); i++){
             if(notiFiObjects.get(i).getSSID().equals(checkSSID)){
                 notiFiObjects.remove(i);
@@ -83,8 +79,8 @@ public class SavedNetworks extends AppCompatActivity {
     }
 
     //Adds a new NotiFi
-    public void addNetwork(String ssid, String desc){
-        if(!isSaved(ssid)) {
+    public void addNotiFi(String ssid, String desc){
+        if(!notifiIsSaved(ssid)) {
             notiFiObjects.add(new NotiFiObject(ssid,desc));
 
             //Convert into json string and put into sharedPreferences
@@ -93,7 +89,7 @@ public class SavedNetworks extends AppCompatActivity {
             String json = gson.toJson(notiFiObjects);
             editor.putString(NOTIFIOBJECT_LIST,json);
             editor.apply();
-            Log.d("NOTIFI", "ADD method called");
+            Log.d("NOTIFI", "SavedNetwork ADD method called");
         }
     }
 

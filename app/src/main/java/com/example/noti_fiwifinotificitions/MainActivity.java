@@ -48,18 +48,18 @@ public class MainActivity extends AppCompatActivity {
         savedNotiFisList.setAdapter(arrayAdapter);
     }
 
-    //Get wifi on button press
+    //Get wifi on button press...testing
     public void click(View view){
-        Toast.makeText(getApplicationContext(), "WIFI CHANGED to: " + tryToReadSSID(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "WIFI Currently is: " + tryToReadSSID(), Toast.LENGTH_LONG).show();
         SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
-        savedNetworks.addNetwork(tryToReadSSID(),"TEST DESC for" + tryToReadSSID());
+        savedNetworks.addNotiFi(tryToReadSSID(),"TEST DESC for" + tryToReadSSID());
         textView.setText(savedNetworks.getCombinedList().toString());
     }
 
     public void remove(View view){
         SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
         textView.setText("removed" + tryToReadSSID());
-        savedNetworks.removeNetwork(tryToReadSSID());
+        savedNetworks.removeNotiFi(tryToReadSSID());
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -87,9 +87,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createNotifi(View view) {
-
         Intent intent = new Intent(this, AddNotificationActivity.class);
         startActivity(intent);
+    }
 
+    public void manageFavourites(View view){
+        Intent intent = new Intent(this, FavoritesActivity.class);
+        startActivity(intent);
     }
 }

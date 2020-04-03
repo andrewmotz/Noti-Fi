@@ -132,8 +132,8 @@ public class NotiFiService extends Service {
 
             //If saved, create a notification
             SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
-                if (savedNetworks.isSaved(currentSSID)) {
-                    createNotification(savedNetworks.getDesc(currentSSID));
+                if (savedNetworks.notifiIsSaved(currentSSID)) {
+                    createNotification(savedNetworks.getNotiFiDesc(currentSSID));
                 }
         }
     }
