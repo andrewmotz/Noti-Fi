@@ -54,12 +54,14 @@ public class MainActivity extends AppCompatActivity {
         SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
         savedNetworks.addNotiFi(tryToReadSSID(),"TEST DESC for" + tryToReadSSID());
         textView.setText(savedNetworks.getCombinedList().toString());
+        updateList();
     }
 
     public void remove(View view){
         SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
         textView.setText("removed" + tryToReadSSID());
         savedNetworks.removeNotiFi(tryToReadSSID());
+        updateList();
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -94,5 +96,11 @@ public class MainActivity extends AppCompatActivity {
     public void manageFavourites(View view){
         Intent intent = new Intent(this, FavoritesActivity.class);
         startActivity(intent);
+    }
+
+    private void updateList() {
+        SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, savedNetworks.getCombinedList());
+        savedNotiFisList.setAdapter(arrayAdapter);
     }
 }

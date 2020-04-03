@@ -53,12 +53,14 @@ public class FavoritesActivity extends AppCompatActivity {
     public void addCurrentNetwork(View view) {
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         favSSIDS.addFavSSID(tryToReadSSID());
+        updateLists();
     }
 
     public void manualEntry(View view){
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         favSSIDS.addFavSSID("\"" + manualEntryEditText.getText().toString() + "\"");
         manualEntryEditText.setText("");
+        updateLists();
     }
 
     //Get SSID
@@ -79,5 +81,18 @@ public class FavoritesActivity extends AppCompatActivity {
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         Log.i("NOTIFI", "Removing " + selected);
         favSSIDS.removeFavSSID(selected);
+        updateLists();
+    }
+
+    private void updateLists(){
+        //Fill spinner
+        FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
+        ArrayList<String> favList = favSSIDS.getFavSSIDList();
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, favList);
+        favSpinner.setAdapter(spinnerAdapter);
+
+        //Fill Listview
+        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, favList);
+        favListView.setAdapter(listViewAdapter);
     }
 }
