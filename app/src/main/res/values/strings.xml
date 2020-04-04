@@ -32,6 +32,34 @@
     <string name="ssid_label">WiFi Name:</string>
     <string name="desc_label">Description:</string>
     <string name="select_a_network">Select a Network</string>
-    <string name="delete_text">Delete</string>
+    <string name="delete_text">Delete</string>.
+    
+    <!--activity_faq-->
+    <string name="faq_get_started">TO GET STARTED:\n\n
+    Make sure to hit "Always allow" in location settings for Noti-Fi,
+    this only ensures that it can find your wi-fi connection.</string>
+
+    <string name="faq_text">
+        HOW TO ADD A WIFI NETWORK:\n\n
+        Step 1: Click "Manage Saved Wifi Networks"\n
+        Step 2: To save the wifi that you are currently connected to, click
+            "Save Current Wifi To Favourites" or manually enter the SSID and click "Add"\n\n
+
+        HOW TO DELETE A SAVED WIFI NETWORK:\n
+        Step 1: Click "Manage Saved Wifi Networks"\n
+        Step 2: Choose the Wifi you want to delete from the dropdown menu
+        Step 3: Once selected, hit "Delete Selected Wifi"\n\n
+
+        HOW TO CREATE NEW NOTIFICATION:\n\n
+        Step 1: Click "Create New Notification"\n
+        Step 2: Enter notification description\n
+        Step 3: Select one of your saved Wifi networks from the options\n
+        Step 4: Click Save\n\n
+
+        HOW TO DELETE A NOTIFICATION:\n\n
+        Step 1: Click "Delete Noti-Fi"\n
+        Step 2: Select the Wifi network for the notification that you want to delete\n
+        Step 3: Click "Delete"\n
+    </string>
 
 </resources>
