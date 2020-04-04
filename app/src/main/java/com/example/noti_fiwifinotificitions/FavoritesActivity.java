@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.wifi.SupplicantState;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -61,6 +63,7 @@ public class FavoritesActivity extends AppCompatActivity {
         favSSIDS.addFavSSID("\"" + manualEntryEditText.getText().toString() + "\"");
         manualEntryEditText.setText("");
         updateLists();
+        hideKeyboard();
     }
 
     //Get SSID
@@ -131,5 +134,14 @@ public class FavoritesActivity extends AppCompatActivity {
     private void showfaq(){
         Intent intent = new Intent(this, FAQActivity.class);
         startActivity(intent);
+    }
+
+    //Closes keyboard
+    private void hideKeyboard(){
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }
