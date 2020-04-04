@@ -27,10 +27,8 @@ public class NotiFiService extends Service {
 
     //Constant Variable decelerations
     public static final String CHANNEL_ID = "ONE";
-    public static final String KEY_LIST_PREF = "KEY_LIST_PREF";
 
     //Variables
-    SharedPreferences sharedPreferences;
     WifiChangeReceiver wifiChangeReceiver = new WifiChangeReceiver();
 
 
@@ -45,7 +43,6 @@ public class NotiFiService extends Service {
     public void onCreate() {
         super.onCreate();
         Log.d("NOTIFI", "NotiFiService onCreate() ran.");
-        sharedPreferences = getSharedPreferences(KEY_LIST_PREF, MODE_PRIVATE);
 
         //Register broadcast receiver for android.net.conn.CONNECTIVITY_CHANGE. This takes the private class
         //below and the type of broadcast your looking for.
@@ -73,7 +70,7 @@ public class NotiFiService extends Service {
                 0, notificationIntent, 0);
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.logo_white)
-                .setContentTitle("Foreground Service")
+                .setContentTitle("Noti-Fi is running")
                 .setContentText(input)
                 .setContentIntent(pendingIntent)
                 .build();
