@@ -44,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/current_favs_list_title"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -82,6 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/manual_ssid_entry"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
@@ -99,6 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="17dp"
+        android:textColor="#FFFFFF"
         android:text="@string/SSID_here"
         app:layout_constraintEnd_toStartOf="@+id/manualSSIDEditText"
         app:layout_constraintTop_toTopOf="@+id/guideline12" />
@@ -112,7 +115,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline12"
-        android:backgroundTint="#000000"
+        android:backgroundTint="#FFFFFF"
         android:textCursorDrawable="@drawable/my_custom_cursor"/>
 
     <androidx.constraintlayout.widget.Guideline
