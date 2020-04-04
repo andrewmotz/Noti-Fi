@@ -99,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void deleteNotiFi(View view){
-        
+        Intent intent = new Intent(this, DeleteNotification.class);
+        startActivity(intent);
     }
 
     private void updateList() {
