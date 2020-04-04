@@ -19,9 +19,15 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DeleteNotification"></activity>
-        <activity android:name=".HelpActivity" />
-        <activity android:name=".FAQActivity" />
+        <activity
+            android:name=".DeleteNotification"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".HelpActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".FAQActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".FavoritesActivity"
             android:parentActivityName=".MainActivity" />
