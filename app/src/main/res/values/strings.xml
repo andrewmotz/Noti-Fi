@@ -10,20 +10,14 @@
 
 
     //activity_add_notification layout
-    <string name="activity_title">CREATE NEW NOTI-FI</string>
+    <string name="edit_title">Title:</string>
     <string name="edit_content">Content:</string>
     <string name="list_of_networks">Network:</string>
+    <string name="save_button">SAVE</string>
+    <string name="canceL_button">CANCEL</string>
+    <string name="enter_title">Enter title of notification...</string>
     <string name="enter_content_hint">Enter notification....</string>
     <string name="custom_create_button">Custom Network</string>
-    <string name="show_custom_ssid">Empty</string> //change this to something else
-
-    //activity_custom_network layout
-    <string name="custom_network_title">Custom Network</string>
-    <string name="custom_network_edit_hint">Manually enter the network here...</string>
-
-    //re-usable strings
-    <string name="save_button">SAVE</string>
-    <string name="cancel_button">CANCEL</string>
 
 
 </resources>
