@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("NOTIFI", "Main activity made.");
 
         Intent intentStarter = new Intent(this, NotiFiService.class);
-        intentStarter.putExtra("inputExtra", "Foreground Service Example in Android");
+        intentStarter.putExtra("inputExtra", "NotiFi is waiting for network changes");
         ContextCompat.startForegroundService(this, intentStarter);
 
         textView = findViewById(R.id.textView);
@@ -46,22 +47,6 @@ public class MainActivity extends AppCompatActivity {
         savedNotiFisList = findViewById(R.id.savedNotiFisList);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, savedNetworks.getCombinedList());
         savedNotiFisList.setAdapter(arrayAdapter);
-    }
-
-    //Get wifi on button press...testing
-    public void click(View view){
-        Toast.makeText(getApplicationContext(), "WIFI Currently is: " + tryToReadSSID(), Toast.LENGTH_LONG).show();
-        SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
-        savedNetworks.addNotiFi(tryToReadSSID(),"TEST DESC for" + tryToReadSSID());
-        textView.setText(savedNetworks.getCombinedList().toString()); //why are we changing title??
-        updateList();
-    }
-
-    public void remove(View view){
-        SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
-        textView.setText("removed" + tryToReadSSID());
-        savedNetworks.removeNotiFi(tryToReadSSID());
-        updateList();
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -132,10 +117,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showHelp(){
-        Log.i("NOTIFI","Help pressed");
+        Intent intent = new Intent(this, HelpActivity.class);
+        startActivity(intent);
     }
 
     private void showfaq(){
-        Log.i("NOTIFI","Faq pressed");
+        Intent intent = new Intent(this, FAQActivity.class);
+        startActivity(intent);
     }
 }
