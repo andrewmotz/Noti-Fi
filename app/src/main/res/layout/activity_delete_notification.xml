@@ -11,6 +11,7 @@
         android:layout_width="409dp"
         android:layout_height="40dp"
         android:scrollbarSize="8dp"
+        android:spinnerMode="dialog"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         tools:layout_editor_absoluteX="1dp" />
 

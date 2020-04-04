@@ -49,5 +49,5 @@
 
         <service android:name=".NotiFiService" />
     </application>
-
+    
 </manifest>

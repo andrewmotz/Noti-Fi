@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("NOTIFI", "Main activity made.");
 
         Intent intentStarter = new Intent(this, NotiFiService.class);
-        intentStarter.putExtra("inputExtra", "Foreground Service Example in Android");
+        intentStarter.putExtra("inputExtra", "NotiFi is waiting for network changes");
         ContextCompat.startForegroundService(this, intentStarter);
 
         textView = findViewById(R.id.textView);
