@@ -56,6 +56,7 @@
         android:layout_marginTop="8dp"
         android:onClick="addCurrentNetwork"
         android:text="@string/save_current_ssid_button"
+        android:background="@drawable/custom_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
@@ -74,6 +75,7 @@
         android:onClick="DeleteSelected"
         android:text="@string/delete_selected_button"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
+        android:background="@drawable/custom_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
@@ -131,6 +133,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
         android:onClick="manualEntry"
+        android:background="@drawable/custom_button"
         android:text="@string/add_manually_entered_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editText"
