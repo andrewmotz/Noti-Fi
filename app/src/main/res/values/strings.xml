@@ -18,7 +18,7 @@
     <string name="enter_title">Enter title of notification...</string>
     <string name="enter_content_hint">Enter notification....</string>
     <string name="custom_create_button">Custom Network</string>
-    <string name="spinner_title">Select One...</string>
+
 
     <!--activity_favourites layout-->
     <string name="current_favs_list_title">Currently Saved Favourites</string>
