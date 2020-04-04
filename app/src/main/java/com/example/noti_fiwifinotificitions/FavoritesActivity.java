@@ -93,6 +93,7 @@ public class FavoritesActivity extends AppCompatActivity {
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         ArrayList<String> favList = favSSIDS.getFavSSIDList();
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, favList);
+        spinnerAdapter.setDropDownViewResource(R.layout.my_spinner);
         favSpinner.setAdapter(spinnerAdapter);
 
         //Fill Listview
