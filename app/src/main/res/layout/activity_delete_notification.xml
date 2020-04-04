@@ -6,15 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".DeleteNotification">
 
+    <View
+        android:id="@+id/border_line3"
+        android:layout_width="0dp"
+        android:layout_height="1.5dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deleteSpinner" />
+
     <Spinner
         android:id="@+id/deleteSpinner"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="@android:color/white"
         android:scrollbarSize="8dp"
         android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
@@ -33,6 +48,7 @@
         android:gravity="center"
         android:text="@string/select_a_network"
         android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +69,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/ssid_label"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline13" />
@@ -63,8 +80,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:textColor="#FFFFFF"
         android:text="@string/select_a_network"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="@+id/guideline13" />
 
@@ -83,6 +101,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/desc_label"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline14" />
@@ -93,8 +112,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:textColor="#FFFFFF"
         android:text="@string/select_a_network"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toTopOf="@+id/guideline14" />
 

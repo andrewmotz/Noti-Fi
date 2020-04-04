@@ -21,16 +21,16 @@
 
 
     <!--activity_favourites layout-->
-    <string name="current_favs_list_title">Currently Saved Favourites</string>
+    <string name="current_favs_list_title">Currently Saved WiFi Names</string>
     <string name="delete_selected_button">Delete Selected Wifi</string>
     <string name="save_current_ssid_button">Save Current Wifi To Favourites</string>
-    <string name="manual_ssid_entry">Manual SSID Entry</string>
+    <string name="manual_ssid_entry">Manual WiFi Name Entry</string>
     <string name="SSID_here">SSID:</string>
     <string name="add_manually_entered_button">Add</string>
 
     <!--activity_delete_notification-->
-    <string name="ssid_label">SSID:</string>
-    <string name="desc_label">Description</string>
+    <string name="ssid_label">WiFi Name:</string>
+    <string name="desc_label">Description:</string>
     <string name="select_a_network">Select a Network</string>
     <string name="delete_text">Delete</string>
 
