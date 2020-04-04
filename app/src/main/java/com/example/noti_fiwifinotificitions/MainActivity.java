@@ -49,22 +49,6 @@ public class MainActivity extends AppCompatActivity {
         savedNotiFisList.setAdapter(arrayAdapter);
     }
 
-    //Get wifi on button press...testing
-    public void click(View view){
-        Toast.makeText(getApplicationContext(), "WIFI Currently is: " + tryToReadSSID(), Toast.LENGTH_LONG).show();
-        SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
-        savedNetworks.addNotiFi(tryToReadSSID(),"TEST DESC for" + tryToReadSSID());
-        textView.setText(savedNetworks.getCombinedList().toString()); //why are we changing title??
-        updateList();
-    }
-
-    public void remove(View view){
-        SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
-        textView.setText("removed" + tryToReadSSID());
-        savedNetworks.removeNotiFi(tryToReadSSID());
-        updateList();
-    }
-
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if(grantResults[0] == PackageManager.PERMISSION_GRANTED && requestCode == LOCATION){
             //User allowed the location and you can read it now

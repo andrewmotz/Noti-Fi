@@ -125,9 +125,6 @@ public class NotiFiService extends Service {
                 currentSSID = info.getSSID();
             }
 
-            //Toast for debug
-            Toast.makeText(getApplicationContext(), "WIFI CHANGED to: " + currentSSID, Toast.LENGTH_LONG).show();
-
             //If saved, create a notification
             SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
                 if (savedNetworks.notifiIsSaved(currentSSID)) {
