@@ -19,6 +19,7 @@
     <string name="enter_content_hint">Enter notification....</string>
     <string name="custom_create_button">Custom Network</string>
 
+
     <!--activity_favourites layout-->
     <string name="current_favs_list_title">Currently Saved Favourites</string>
     <string name="delete_selected_button">Delete Selected Network</string>

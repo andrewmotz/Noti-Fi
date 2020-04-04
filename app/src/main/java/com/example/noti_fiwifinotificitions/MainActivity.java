@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "WIFI Currently is: " + tryToReadSSID(), Toast.LENGTH_LONG).show();
         SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
         savedNetworks.addNotiFi(tryToReadSSID(),"TEST DESC for" + tryToReadSSID());
-        textView.setText(savedNetworks.getCombinedList().toString());
+        textView.setText(savedNetworks.getCombinedList().toString()); //why are we changing title??
         updateList();
     }
 
