@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 public class FavoritesActivity extends AppCompatActivity {
 
+    private static final int LOCATION = 1;
     Spinner favSpinner;
     ListView favListView;
     EditText manualEntryEditText;
@@ -66,12 +67,16 @@ public class FavoritesActivity extends AppCompatActivity {
     //Get SSID
     private String tryToReadSSID() {
         String ssid = "";
-
-        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
-        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-        if (wifiInfo.getSupplicantState() == SupplicantState.COMPLETED) {
-            ssid = wifiInfo.getSSID();//Here you can access your SSID
-
+        //If requested permission isn't Granted yet
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            //Request permission from user
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION);
+        }else{//Permission already granted
+            WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            if(wifiInfo.getSupplicantState() == SupplicantState.COMPLETED){
+                ssid = wifiInfo.getSSID();//Here you can access your SSID
+            }
         }
         return ssid;
     }
