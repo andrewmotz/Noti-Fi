@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Noti-Fi</string>
 
-    //activity_main layout Strings
+    <!--activity_main layout Strings-->
     <string name="notifi_list_title">Saved Noti-Fi\'s</string>
     <string name="new_notifi_button">CREATE NEW NOTI-FI</string>
     <string name="add_current_button">ADD CURRENT NETWORK</string>
@@ -9,9 +9,9 @@
     <string name="remove_current_button">REMOVE CURRENT</string>
 
 
-    //activity_add_notification layout
+    <!--activity_add_notification layout -->
     <string name="edit_title">Title:</string>
-    <string name="edit_content">Content:</string>
+    <string name="edit_content">Notification Description:</string>
     <string name="list_of_networks">Network:</string>
     <string name="save_button">SAVE</string>
     <string name="canceL_button">CANCEL</string>
@@ -19,15 +19,12 @@
     <string name="enter_content_hint">Enter notification....</string>
     <string name="custom_create_button">Custom Network</string>
 
-    //activity_favourites layout
+    <!--activity_favourites layout-->
     <string name="current_favs_list_title">Currently Saved Favourites</string>
     <string name="delete_selected_button">Delete Selected Network</string>
     <string name="save_current_ssid_button">Save Current Network To Favourites</string>
     <string name="manual_ssid_entry">Manual SSID Entry</string>
     <string name="SSID_here">SSID:</string>
     <string name="add_manually_entered_button">Add</string>
-
-
-
 
 </resources>
