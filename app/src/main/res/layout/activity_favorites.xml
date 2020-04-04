@@ -111,7 +111,9 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+        app:layout_constraintTop_toTopOf="@+id/guideline12"
+        android:backgroundTint="#000000"
+        android:textCursorDrawable="@drawable/my_custom_cursor"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline12"
