@@ -3,18 +3,18 @@
 
     <!--activity_main layout Strings-->
     <string name="notifi_list_title">Current Notifications</string>
-    <string name="new_notifi_button">CREATE NEW NOTI-FI</string>
-    <string name="add_current_button">ADD CURRENT NETWORK</string>
-    <string name="manage_favs_button">MANAGE  SAVED NETWORKS</string>
-    <string name="remove_current_button">REMOVE CURRENT</string>
+    <string name="new_notifi_button">Create New Notification</string>
+    <string name="add_current_button">Add Current Wifi</string>
+    <string name="manage_favs_button">Manage Saved Wifi Networks</string>
+    <string name="remove_current_button">Remove Current Wifi</string>
 
 
     <!--activity_add_notification layout -->
     <string name="edit_title">Title:</string>
     <string name="edit_content">Notification Description:</string>
-    <string name="list_of_networks">Network:</string>
-    <string name="save_button">SAVE</string>
-    <string name="canceL_button">CANCEL</string>
+    <string name="list_of_networks">Wifi:</string>
+    <string name="save_button">Save</string>
+    <string name="canceL_button">Cancel</string>
     <string name="enter_title">Enter title of notification…</string>
     <string name="enter_content_hint">Enter notification…</string>
     <string name="custom_create_button">Custom Network</string>
@@ -22,8 +22,8 @@
 
     <!--activity_favourites layout-->
     <string name="current_favs_list_title">Currently Saved Favourites</string>
-    <string name="delete_selected_button">Delete Selected Network</string>
-    <string name="save_current_ssid_button">Save Current Network To Favourites</string>
+    <string name="delete_selected_button">Delete Selected Wifi</string>
+    <string name="save_current_ssid_button">Save Current Wifi To Favourites</string>
     <string name="manual_ssid_entry">Manual SSID Entry</string>
     <string name="SSID_here">SSID:</string>
     <string name="add_manually_entered_button">Add</string>
