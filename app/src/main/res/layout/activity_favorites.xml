@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FavoritesActivity">
+
     <Spinner
         android:id="@+id/favNetworkSpinner"
         android:layout_width="412dp"
         android:layout_height="0dp"
         android:backgroundTint="@android:color/white"
-        android:spinnerMode="dialog"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toTopOf="@+id/button9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

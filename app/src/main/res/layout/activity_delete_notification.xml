@@ -14,7 +14,7 @@
         android:layout_marginEnd="8dp"
         android:backgroundTint="@android:color/white"
         android:scrollbarSize="8dp"
-        android:spinnerMode="dialog"
+        android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
