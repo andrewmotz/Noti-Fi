@@ -98,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void deleteNotiFi(View view){
+        
+    }
+
     private void updateList() {
         SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, savedNetworks.getCombinedList());

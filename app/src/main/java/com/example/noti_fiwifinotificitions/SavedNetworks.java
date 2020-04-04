@@ -102,4 +102,8 @@ public class SavedNetworks extends AppCompatActivity {
         }
         return Arrays.asList(combined);
     }
- }
+
+    public ArrayList<NotiFiObject> getNotiFiObjects() {
+        return notiFiObjects;
+    }
+}

@@ -28,17 +28,20 @@ public class AddNotificationActivity extends AppCompatActivity {
         //Fill spinner
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         ArrayList<String> favList = favSSIDS.getFavSSIDList();
+        favList.add(0,"Select a network");
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, favList);
         networkSpinner.setAdapter(spinnerAdapter);
     }
 
     public void saveButton(View view){
-        SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
-        String content = contentText.getText().toString();
         String ssid = networkSpinner.getSelectedItem().toString();
-        savedNetworks.addNotiFi(ssid, content);
+        if(!ssid.equals("Select a network")) {
+            SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
+            String content = contentText.getText().toString();
+            savedNetworks.addNotiFi(ssid, content);
 
-        goToMainActivity();
+            goToMainActivity();
+        }
     }
 
     public  void cancelButton(View view){
