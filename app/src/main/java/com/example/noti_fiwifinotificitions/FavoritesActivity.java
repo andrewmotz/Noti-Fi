@@ -49,11 +49,6 @@ public class FavoritesActivity extends AppCompatActivity {
         favListView.setAdapter(listViewAdapter);
     }
 
-    public void backButton(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
     public void addCurrentNetwork(View view) {
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         favSSIDS.addFavSSID(tryToReadSSID());

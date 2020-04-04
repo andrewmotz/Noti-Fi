@@ -2,8 +2,12 @@ package com.example.noti_fiwifinotificitions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -43,10 +47,17 @@ public class DeleteNotification extends AppCompatActivity implements AdapterView
         return notifissids;
     }
 
+    public void deleteNotifi(View view){
+        String ssid = delSpinner.getSelectedItem().toString();
+        SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
+        savedNetworks.removeNotiFi(ssid);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Log.i("NOTIFI","SELECTED:" + position);
         String ssid = delSpinner.getItemAtPosition(position).toString();
         ssidText.setText(ssid);
         SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
@@ -55,7 +66,37 @@ public class DeleteNotification extends AppCompatActivity implements AdapterView
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+        //Does nothing, have to override
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.default_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.help:
+                showHelp();
+                return true;
+            case R.id.faq:
+                showfaq();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void showHelp(){
+        Log.i("NOTIFI","Help pressed");
+    }
+
+    private void showfaq(){
+        Log.i("NOTIFI","Faq pressed");
     }
 
 }
