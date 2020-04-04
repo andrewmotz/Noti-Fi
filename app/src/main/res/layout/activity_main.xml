@@ -112,9 +112,11 @@
         android:layout_marginStart="32dp"
         android:onClick="deleteNotiFi"
         android:text="Delete Noti-Fi"
+        android:background="@drawable/custom_button"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:layout_constraintVertical_bias="0.545" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
