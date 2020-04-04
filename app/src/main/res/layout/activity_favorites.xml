@@ -11,8 +11,9 @@
         android:layout_width="412dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/button9"
-        app:layout_constraintTop_toTopOf="@+id/guideline9"
-        tools:layout_editor_absoluteX="-2dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
@@ -39,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Currenty Favorited Networks"
+        android:text="@string/current_favs_list_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:onClick="addCurrentNetwork"
-        android:text="Add Current Network To Favourites"
+        android:text="@string/save_current_ssid_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
@@ -67,26 +68,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="DeleteSelected"
-        android:text="Delete Selected Network"
+        android:text="@string/delete_selected_button"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="backButton"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Manual SSID Entry"
+        android:text="@string/manual_ssid_entry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
@@ -104,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="17dp"
-        android:text="SSID:"
+        android:text="@string/SSID_here"
         app:layout_constraintEnd_toStartOf="@+id/manualSSIDEditText"
         app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
@@ -131,7 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
         android:onClick="manualEntry"
-        android:text="Add"
+        android:text="@string/add_manually_entered_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editText"
         app:layout_constraintTop_toTopOf="@+id/guideline12" />

@@ -19,5 +19,15 @@
     <string name="enter_content_hint">Enter notification....</string>
     <string name="custom_create_button">Custom Network</string>
 
+    //activity_favourites layout
+    <string name="current_favs_list_title">Currently Saved Favourites</string>
+    <string name="delete_selected_button">Delete Selected Network</string>
+    <string name="save_current_ssid_button">Save Current Network To Favourites</string>
+    <string name="manual_ssid_entry">Manual SSID Entry</string>
+    <string name="SSID_here">SSID:</string>
+    <string name="add_manually_entered_button">Add</string>
+
+
+
 
 </resources>
