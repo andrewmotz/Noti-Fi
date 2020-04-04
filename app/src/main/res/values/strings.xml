@@ -15,8 +15,8 @@
     <string name="list_of_networks">Network:</string>
     <string name="save_button">SAVE</string>
     <string name="canceL_button">CANCEL</string>
-    <string name="enter_title">Enter title of notification...</string>
-    <string name="enter_content_hint">Enter notification....</string>
+    <string name="enter_title">Enter title of notification…</string>
+    <string name="enter_content_hint">Enter notification…</string>
     <string name="custom_create_button">Custom Network</string>
 
 
@@ -27,5 +27,11 @@
     <string name="manual_ssid_entry">Manual SSID Entry</string>
     <string name="SSID_here">SSID:</string>
     <string name="add_manually_entered_button">Add</string>
+
+    <!--activity_delete_notification-->
+    <string name="ssid_label">SSID:</string>
+    <string name="desc_label">Description</string>
+    <string name="select_a_network">Select a Network</string>
+    <string name="delete_text">Delete</string>
 
 </resources>
