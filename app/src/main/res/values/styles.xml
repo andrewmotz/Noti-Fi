@@ -7,9 +7,10 @@
         <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:navigationBarColor">#000000</item>
-        <item name="android:windowBackground">#C7C7C7</item>
+        <item name="android:windowBackground">#202124</item>
         <item name="android:fontFamily">@font/main_font</item>
         <item name="buttonStyle">@style/ButtonStyles</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
     </style>
 
     <style name="ButtonStyles" parent="Base.Widget.AppCompat.Button">
