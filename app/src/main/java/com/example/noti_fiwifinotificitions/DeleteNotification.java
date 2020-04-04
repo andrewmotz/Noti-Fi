@@ -92,11 +92,13 @@ public class DeleteNotification extends AppCompatActivity implements AdapterView
     }
 
     private void showHelp(){
-        Log.i("NOTIFI","Help pressed");
+        Intent intent = new Intent(this, HelpActivity.class);
+        startActivity(intent);
     }
 
     private void showfaq(){
-        Log.i("NOTIFI","Faq pressed");
+        Intent intent = new Intent(this, FAQActivity.class);
+        startActivity(intent);
     }
 
 }
