@@ -58,15 +58,17 @@ public class FavSSIDS extends AppCompatActivity {
     }
 
     public void addFavSSID(String newSSID){
-        favSSIDList.add(newSSID);
+        if(!favSSIDIsSaved(newSSID)) {
+            favSSIDList.add(newSSID);
 
-        //Save to shared preferences
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(favSSIDList);
-        editor.putString(FAV_SSIDS, json);
-        editor.apply();
-        Log.d("NOTIFI", "FavSSID ADD method called");
+            //Save to shared preferences
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            Gson gson = new Gson();
+            String json = gson.toJson(favSSIDList);
+            editor.putString(FAV_SSIDS, json);
+            editor.apply();
+            Log.d("NOTIFI", "FavSSID ADD method called");
+        }
     }
 
     public ArrayList<String> getFavSSIDList(){
