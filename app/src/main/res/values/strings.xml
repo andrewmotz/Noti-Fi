@@ -3,7 +3,7 @@
 
     <!--activity_main layout Strings-->
     <string name="notifi_list_title">Current Notifications</string>
-    <string name="new_notifi_button">CREATE NEW NOTIFICATION</string>
+    <string name="new_notifi_button">CREATE NEW NOTI-FI</string>
     <string name="add_current_button">ADD CURRENT NETWORK</string>
     <string name="manage_favs_button">MANAGE  SAVED NETWORKS</string>
     <string name="remove_current_button">REMOVE CURRENT</string>
