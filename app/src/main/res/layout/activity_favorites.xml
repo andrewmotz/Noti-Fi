@@ -10,6 +10,7 @@
         android:id="@+id/favNetworkSpinner"
         android:layout_width="412dp"
         android:layout_height="0dp"
+        android:backgroundTint="@android:color/white"
         android:spinnerMode="dialog"
         app:layout_constraintBottom_toTopOf="@+id/button9"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,13 +113,13 @@
         android:id="@+id/manualSSIDEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textCursorDrawable="@drawable/my_custom_cursor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline12"
-        android:backgroundTint="#FFFFFF"
-        android:textCursorDrawable="@drawable/my_custom_cursor"/>
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline12"
@@ -128,15 +129,14 @@
         app:layout_constraintGuide_percent="0.77" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/addManualSSIDButton"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
         android:onClick="manualEntry"
         android:background="@drawable/custom_button"
         android:text="@string/add_manually_entered_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintStart_toEndOf="@+id/manualSSIDEditText"
         app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
