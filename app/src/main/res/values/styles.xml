@@ -9,6 +9,7 @@
         <item name="android:navigationBarColor">#000000</item>
         <item name="android:windowBackground">#C7C7C7</item>
         <item name="android:fontFamily">@font/main_font</item>
+
     </style>
 
 </resources>

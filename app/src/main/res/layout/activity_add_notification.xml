@@ -38,7 +38,9 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.764" />
+        app:layout_constraintVertical_bias="0.764"
+        android:backgroundTint="#000000"
+        android:textCursorDrawable="@drawable/my_custom_cursor"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -48,20 +50,22 @@
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.147" />
+        app:layout_constraintVertical_bias="0.108" />
 
     <Spinner
         android:id="@+id/spinner_networks"
         android:layout_width="363dp"
         android:layout_height="59dp"
+        android:spinnerMode="dialog"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
+
         app:layout_constraintVertical_bias="0.669" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -77,6 +81,7 @@
         android:layout_height="67dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:backgroundTint="#B4B4B4"
         android:onClick="saveButton"
         android:text="@string/save_button"
         android:textSize="35sp"
@@ -91,6 +96,7 @@
         android:layout_height="67dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:backgroundTint="#B4B4B4"
         android:onClick="cancelButton"
         android:text="@string/canceL_button"
         android:textSize="30sp"
