@@ -162,7 +162,7 @@ public class FavoritesActivity extends AppCompatActivity {
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
-    @Override
+    //onBackPressed is the bottom back arrow. Control for the top back button is done in mainActivity
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);

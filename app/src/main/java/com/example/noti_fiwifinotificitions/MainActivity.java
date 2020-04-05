@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         savedNotiFisList = findViewById(R.id.savedNotiFisList);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, savedNetworks.getCombinedList());
         savedNotiFisList.setAdapter(arrayAdapter);
-        //animation transition
+
+        //animation transition for when mainactivity is created, needed for top bar's back arrow to work with transition
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
@@ -77,18 +78,21 @@ public class MainActivity extends AppCompatActivity {
     public void createNotifi(View view) {
         Intent intent = new Intent(this, AddNotificationActivity.class);
         startActivity(intent);
+        //transition for switching activities
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void manageFavourites(View view){
         Intent intent = new Intent(this, FavoritesActivity.class);
         startActivity(intent);
+        //transition for switching activities
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void deleteNotiFi(View view){
         Intent intent = new Intent(this, DeleteNotification.class);
         startActivity(intent);
+        //transition for switching activities
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
