@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class AddNotificationActivity extends AppCompatActivity {
 
@@ -61,6 +62,7 @@ public class AddNotificationActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.default_menu, menu);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Create A Notification");
         return true;
     }
 

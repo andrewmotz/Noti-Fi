@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class DeleteNotification extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -74,6 +75,7 @@ public class DeleteNotification extends AppCompatActivity implements AdapterView
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.default_menu, menu);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Delete A Notification");
         return true;
     }
 
