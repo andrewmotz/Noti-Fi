@@ -44,6 +44,7 @@ public class FavoritesActivity extends AppCompatActivity {
         //Fill spinner
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         ArrayList<String> favList = favSSIDS.getFavSSIDList();
+        favList.add(0, "Select a Network: ");
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, favList);
         spinnerAdapter.setDropDownViewResource(R.layout.my_spinner);
         favSpinner.setAdapter(spinnerAdapter);
@@ -88,6 +89,7 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     public void DeleteSelected(View view){
+
         String selected = favSpinner.getSelectedItem().toString();
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         Log.i("NOTIFI", "Removing " + selected);
