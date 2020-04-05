@@ -203,7 +203,7 @@
         android:background="@drawable/custom_button"
         android:onClick="manualEntry"
         android:text="@string/add_manually_entered_button"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
