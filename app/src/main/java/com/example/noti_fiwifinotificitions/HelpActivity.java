@@ -2,6 +2,7 @@ package com.example.noti_fiwifinotificitions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
@@ -46,6 +47,8 @@ public class HelpActivity extends AppCompatActivity {
     }
 
     private void showVideo(){
+        Intent intent = new Intent(this, PermissionsVideo.class);
+        startActivity(intent);
 
     }
 }
