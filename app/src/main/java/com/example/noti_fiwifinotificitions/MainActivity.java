@@ -5,6 +5,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.wifi.SupplicantState;
@@ -34,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d("NOTIFI", "Main activity made.");
 
-        Intent intentStarter = new Intent(this, NotiFiService.class);
-        intentStarter.putExtra("inputExtra", "NotiFi is waiting for network changes");
-        ContextCompat.startForegroundService(this, intentStarter);
+        if(!NotiFiService.isRunning){
+            startNotiFiService();
+        }
 
         textView = findViewById(R.id.textView);
         SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(NOTI_FI_PREF, MODE_PRIVATE));
@@ -109,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.faq:
                 showfaq();
                 return true;
+            case R.id.service_start :
+                startNotiFiService();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -122,5 +126,11 @@ public class MainActivity extends AppCompatActivity {
     private void showfaq(){
         Intent intent = new Intent(this, FAQActivity.class);
         startActivity(intent);
+    }
+
+    private void startNotiFiService(){
+        Intent intentStarter = new Intent(this, NotiFiService.class);
+        intentStarter.putExtra("inputExtra", "NotiFi is waiting for network changes");
+        ContextCompat.startForegroundService(this, intentStarter);
     }
 }

@@ -5,15 +5,15 @@
     <!--activity_main layout Strings-->
     <string name="notifi_list_title">Current Notifications</string>
     <string name="new_notifi_button">Create New Notification</string>
-    <string name="add_current_button">Add Current Wifi</string>
-    <string name="manage_favs_button">Manage Saved Wifi Networks</string>
-    <string name="remove_current_button">Remove Current Wifi</string>
+    <string name="add_current_button">Add Current Wifi Name</string>
+    <string name="manage_favs_button">Manage Saved Wifi Names</string>
+    <string name="remove_current_button">Remove Current Wifi Name</string>
 
     <!-- ============================================================================ -->
     <!--activity_add_notification layout -->
     <string name="edit_title">Title:</string>
     <string name="edit_content">Notification Description:</string>
-    <string name="list_of_networks">Wifi:</string>
+    <string name="list_of_networks">Wifi Name:</string>
     <string name="save_button">Save</string>
     <string name="canceL_button">Cancel</string>
     <string name="enter_title">Enter title of notification…</string>
@@ -23,21 +23,21 @@
     <!-- ============================================================================ -->
     <!--activity_favourites layout-->
     <string name="current_favs_list_title">Currently Saved WiFi Names</string>
-    <string name="delete_selected_button">Delete Selected Wifi</string>
-    <string name="save_current_ssid_button">Save Current Wifi To Favourites</string>
+    <string name="delete_selected_button">Delete Selected Wifi Name</string>
+    <string name="save_current_ssid_button">Save Current Wifi Name To Favourites</string>
     <string name="manual_ssid_entry">Manual WiFi Name Entry</string>
     <string name="SSID_here">SSID:</string>
     <string name="add_manually_entered_button">Add</string>
 
     <string name="delete_noti_fi">Delete Notification</string>
-    <string name="delete_saved_wifi">Delete Saved Wifi</string>
+    <string name="delete_saved_wifi">Delete Saved Wifi Name</string>
 
 
     <!-- ============================================================================ -->
     <!--activity_delete_notification layout-->
     <string name="ssid_label">WiFi Name:</string>
     <string name="desc_label">Description:</string>
-    <string name="select_a_network">Select a Network</string>
+    <string name="select_a_network">Select a Wifi Name</string>
     <string name="delete_text">Delete</string>
 
     <!-- ============================================================================ -->
@@ -54,34 +54,35 @@
 
                ________________________________________________\n\n
 
-        <font size="25"><font color="#8AB4EC"><b>ADDING A WIFI NETWORK</b></font></font>\n\n
+        <font size="25"><font color="#8AB4EC"><b>ADDING A NEW WIFI NAME</b></font></font>\n\n
         <font size="20"><font color="#8AB4EC"><b>Step 1: </b></font>
-                                                Click <i>Manage Saved Wifi Networks</i>\n\n
+                                                Click <i>Manage Saved Wifi Names</i>\n\n
                         <font color="#8AB4EC"><b>Step 2: </b></font>
                 To save the wifi that you are currently connected to, click
-            <i>Save Current Wifi To Favourites</i> or manually enter the SSID and click <i>Add</i></font>
+            <i>Save Current Wifi Name To Favourites</i> or manually enter the SSID and click <i>Add</i></font>
             \n\n
 
               ________________________________________________\n\n
 
-        <font size="25"><font color="#8AB4EC"><b>DELETING A SAVED WIFI</b></font></font>\n\n
-        <font size="20"><font color="#8AB4EC">Step 1:</font> Click <i>Manage Saved Wifi Networks</i>\n\n
-            <font color="#8AB4EC">Step 2:</font> Choose the Wifi you want to delete from the dropdown menu\n\n
-            <font color="#8AB4EC">Step 3:</font> Once selected, click <i>Delete Selected Wifi</i>\n\n</font>
+        <font size="25"><font color="#8AB4EC"><b>DELETE A SAVED WIFI NAME</b></font></font>\n\n
+        <font size="20"><font color="#8AB4EC">Step 1:</font> Click <i>Manage Saved Wifi Names</i>\n\n
+            <font color="#8AB4EC">Step 2:</font> Choose the Wifi you want to delete from the dropdown menu under
+                \"Delete Saved Wifi Name\"\n\n
+            <font color="#8AB4EC">Step 3:</font> Once selected, click <i>Delete Selected Wifi Name</i>\n\n</font>
 
               ________________________________________________\n\n
 
         <font size="25"><font color="#8AB4EC"><b>CREATE NEW NOTIFICATION</b></font></font>\n\n
         <font size="20"><font color="#8AB4EC">Step 1:</font> Click <i>Create New Notification</i>\n\n
             <font color="#8AB4EC">Step 2:</font> Enter notification description\n\n
-            <font color="#8AB4EC">Step 3:</font> Select one of your saved Wifi networks from the options\n\n
+            <font color="#8AB4EC">Step 3:</font> Select one of your saved Wifi names from the options\n\n
             <font color="#8AB4EC">Step 4:</font> Click <i>Save</i>\n\n</font>
 
               ________________________________________________\n\n
 
-        <font size="25"><font color="#8AB4EC"><b>DELETING A NOTIFICATION</b></font></font>\n\n
-        <font size="20"><font color="#8AB4EC">Step 1:</font> Click <i>Delete Noti-Fi</i>\n\n
-            <font color="#8AB4EC">Step 2:</font> Select the Wifi network for the notification that you want to delete\n\n
+        <font size="25"><font color="#8AB4EC"><b>DELETE A NOTIFICATION</b></font></font>\n\n
+        <font size="20"><font color="#8AB4EC">Step 1:</font> Click <i>Delete Notification</i>\n\n
+            <font color="#8AB4EC">Step 2:</font> Select the Wifi name for the notification that you want to delete\n\n
             <font color="#8AB4EC">Step 3:</font> Click <i>Delete</i>\n\n</font>
     </string>
 
@@ -90,25 +91,32 @@
 
     <string name="faq_text">
 
+        <font size="25"><font color="#8AB4EC"><b>How does the app work?</b></font></font>\n\n
+       <font size="20">When your phone connects to wifi, the app will see which network you connect to.
+        After it connects to a WiFi connection, it willcheck if you have made a notification for this wifi network.
+           If you have, it will send the reminder notification to your phone.\n\n</font>
+
         <font size="25"><font color="#8AB4EC"><b>Why Does This App Need Location Services?</b></font></font>\n\n
-        <font size="20">In order for the app to see when you connect to a wifi network,
-            location services must be enabled and set to <i>always allow</i>.\n\n</font>
+        <font size="20">This app does not keep track of location or use any GPS data.
+            The only reason it requires location permissions in the foreground and background is
+            because the app needs to read the WiFi network names. Google does not allow apps to get
+            the name without location permissions.\n\n</font>
 
         <font size="25"><font color="#8AB4EC"><b>Does the app use GPS?</b></font></font>\n\n
-        <font size="20">Nope!\n\n</font>
+        <font size="20">Nope! This app does not keep track of location or use any GPS data.\n\n</font>
 
         <font size="25"><font color="#8AB4EC"><b>Why Is There A Running Notification?</b></font></font>\n\n
         <font size="20">Android now requires all apps running in the background to have an active notification.\n\n</font>
 
+        <font size="25"><font color="#8AB4EC"><b>Create a notification isn\'t working?</b></font></font>\n\n
+        <font size="20">In order to create a new notification, you must make sure that you have a Wifi name
+            saved for it first in <i>Manage Saved Wifi Names</i> from the Main page\n\n</font>
+
         <font size="25"><font color="#8AB4EC"><b>What is running in the background?</b></font></font>\n\n
         <font size="20">The task running in the background is waiting for a wifi change, nothing else.\n\n</font>
 
-        <font size="25"><font color="#8AB4EC"><b>How does the app work?</b></font></font>\n\n
-       <font size="20">When your phone connects to wifi, the app will see which network you connect to.
-        It will then check if you have made a notification for this wifi network. If you have, it will send the notification to your phone.\n\n</font>
-
         <font size="25"><font color="#8AB4EC"><b>Who Created This App?</b></font></font>\n\n
-        <font size="20">3 Thompson Rivers University students have made this app for a final project :).\n\n</font>
+        <font size="20">3 Thompson Rivers University students have made this app for a final project :)\n\n</font>
 
 
 

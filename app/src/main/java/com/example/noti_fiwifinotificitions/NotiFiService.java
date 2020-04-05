@@ -25,6 +25,7 @@ public class NotiFiService extends Service {
 
     //Constant Variable decelerations
     public static final String CHANNEL_ID = "ONE";
+    public static boolean isRunning = false;
 
     //Variables
     WifiChangeReceiver wifiChangeReceiver = new WifiChangeReceiver();
@@ -45,6 +46,7 @@ public class NotiFiService extends Service {
         //Register broadcast receiver for android.net.conn.CONNECTIVITY_CHANGE. This takes the private class
         //below and the type of broadcast your looking for.
         registerReceiver(wifiChangeReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        isRunning = true;
     }
 
     //Runs when service is killed
@@ -54,6 +56,7 @@ public class NotiFiService extends Service {
         stopForeground(true); //true will remove notification
         unregisterReceiver(wifiChangeReceiver);
         Log.d("NOTIFI", "NotiFiService Stopped");
+        isRunning = false;
     }
 
     //Runs on service start
@@ -61,6 +64,7 @@ public class NotiFiService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
+        intent.putExtra("inputExtra", "NotiFi is waiting for network changes");
         String input = intent.getStringExtra("inputExtra");
         createNotificationChannel();
         Intent notificationIntent = new Intent(this, MainActivity.class);

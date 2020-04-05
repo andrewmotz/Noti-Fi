@@ -2,6 +2,7 @@ package com.example.noti_fiwifinotificitions;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Context;
@@ -88,7 +89,6 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     public void DeleteSelected(View view){
-
         Object selectedObject = favSpinner.getSelectedItem();
         if(selectedObject != null) {
             String selected = selectedObject.toString();
@@ -130,6 +130,9 @@ public class FavoritesActivity extends AppCompatActivity {
             case R.id.faq:
                 showfaq();
                 return true;
+            case R.id.service_start :
+                startNotiFiService();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -143,6 +146,12 @@ public class FavoritesActivity extends AppCompatActivity {
     private void showfaq(){
         Intent intent = new Intent(this, FAQActivity.class);
         startActivity(intent);
+    }
+
+    private void startNotiFiService(){
+        Intent intentStarter = new Intent(this, NotiFiService.class);
+        intentStarter.putExtra("inputExtra", "NotiFi is waiting for network changes");
+        ContextCompat.startForegroundService(this, intentStarter);
     }
 
     //Closes keyboard
