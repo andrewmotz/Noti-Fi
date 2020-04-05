@@ -28,7 +28,6 @@ import java.util.Objects;
 public class FavoritesActivity extends AppCompatActivity {
 
     private static final int LOCATION = 1;
-    private String select_a_network = "Select A Network: ";
     Spinner favSpinner;
     ListView favListView;
     EditText manualEntryEditText;
@@ -45,7 +44,6 @@ public class FavoritesActivity extends AppCompatActivity {
         //Fill spinner
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         ArrayList<String> favList = favSSIDS.getFavSSIDList();
-        favList.add(0, select_a_network);
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, favList);
         spinnerAdapter.setDropDownViewResource(R.layout.my_spinner);
         favSpinner.setAdapter(spinnerAdapter);
@@ -91,15 +89,14 @@ public class FavoritesActivity extends AppCompatActivity {
 
     public void DeleteSelected(View view){
 
-        String selected = favSpinner.getSelectedItem().toString();
-
-        if(!selected.equals(select_a_network)) {
+        Object selectedObject = favSpinner.getSelectedItem();
+        if(selectedObject != null) {
+            String selected = selectedObject.toString();
             FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
             Log.i("NOTIFI", "Removing " + selected);
             favSSIDS.removeFavSSID(selected);
             updateLists();
         }
-
     }
 
     private void updateLists(){
