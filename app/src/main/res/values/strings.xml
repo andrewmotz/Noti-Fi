@@ -79,6 +79,7 @@
             <font color="#8AB4EC">Step 3:</font> Click <i>Delete</i>\n\n</font>
     </string>
     <string name="delete_noti_fi">Delete Notification</string>
+    <string name="delete_saved_wifi">Delete Saved Wifi</string>
 
     <!-- ============================================================================ -->
     <!-- activity_help layout-->

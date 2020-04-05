@@ -53,10 +53,10 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.211" />
+        app:layout_constraintVertical_bias="0.19" />
 
     <Spinner
         android:id="@+id/spinner_networks"
