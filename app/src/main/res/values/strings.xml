@@ -61,5 +61,6 @@
         Step 2: Select the Wifi network for the notification that you want to delete\n
         Step 3: Click "Delete"\n
     </string>
+    <string name="delete_noti_fi">Delete Notification</string>
 
 </resources>
