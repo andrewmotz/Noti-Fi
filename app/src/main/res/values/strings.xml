@@ -104,9 +104,8 @@
         <font size="20">The task running in the background is waiting for a wifi change, nothing else.\n\n</font>
 
         <font size="25"><font color="#8AB4EC"><b>How does the app work?</b></font></font>\n\n
-       <font size="20"> When your phone connects to wifi, the app will see which network you connect to.
-        It will then check if you have made a notification for this wifi network.
-           If you have, it will send the notification to your phone.\n\n</font>
+       <font size="20">When your phone connects to wifi, the app will see which network you connect to.
+        It will then check if you have made a notification for this wifi network. If you have, it will send the notification to your phone.\n\n</font>
 
         <font size="25"><font color="#8AB4EC"><b>Who Created This App?</b></font></font>\n\n
         <font size="20">3 Thompson Rivers University students have made this app for a final project :).\n\n</font>
