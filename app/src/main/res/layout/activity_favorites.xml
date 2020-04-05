@@ -150,8 +150,8 @@
 
     <EditText
         android:id="@+id/manualSSIDEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="164dp"
+        android:layout_height="43dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
@@ -172,6 +172,7 @@
         android:id="@+id/addManualSSIDButton"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/custom_button"
         android:onClick="manualEntry"
         android:text="@string/add_manually_entered_button"
