@@ -140,11 +140,11 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:text="@string/SSID_here"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/manualSSIDEditText"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
@@ -152,13 +152,14 @@
         android:id="@+id/manualSSIDEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
         android:textCursorDrawable="@drawable/my_custom_cursor"
-        app:layout_constraintBottom_toBottomOf="@+id/addManualSSIDButton"
-        app:layout_constraintStart_toEndOf="@+id/textView6" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toStartOf="@+id/addManualSSIDButton"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline12"
@@ -171,13 +172,11 @@
         android:id="@+id/addManualSSIDButton"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="5dp"
         android:background="@drawable/custom_button"
         android:onClick="manualEntry"
         android:text="@string/add_manually_entered_button"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/manualSSIDEditText"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
     <androidx.constraintlayout.widget.Guideline
