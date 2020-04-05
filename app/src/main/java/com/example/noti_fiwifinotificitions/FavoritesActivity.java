@@ -88,11 +88,15 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     public void DeleteSelected(View view){
-        String selected = favSpinner.getSelectedItem().toString();
-        FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
-        Log.i("NOTIFI", "Removing " + selected);
-        favSSIDS.removeFavSSID(selected);
-        updateLists();
+
+        Object selectedObject = favSpinner.getSelectedItem();
+        if(selectedObject != null) {
+            String selected = selectedObject.toString();
+            FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
+            Log.i("NOTIFI", "Removing " + selected);
+            favSSIDS.removeFavSSID(selected);
+            updateLists();
+        }
     }
 
     private void updateLists(){
