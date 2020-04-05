@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">Noti-Fi</string>
 
     <!-- ============================================================================ -->
@@ -37,14 +37,15 @@
     <string name="delete_text">Delete</string>
 
     <!-- ============================================================================ -->
-    <!--activity_faq layout-->
+    <!--activity_help layout-->
 
-    <string name="faq_text">
+    <string name="help_text">
 
         <font size="25"><font color="#8AB4EC"><b>TO GET STARTED</b></font></font>\n\n
         <font size="20">Make sure to hit <i>Always Allow</i> in location settings for the Noti-Fi app,
-            this only ensures that it can find your wi-fi connection. \n\n</font>
-              insert GIF here\n\n
+            this only ensures that it can find your wi-fi connection. \n\n
+
+                Click here for a tutorial</font>
 
               ________________________________________________\n\n
 
@@ -81,6 +82,6 @@
     <string name="delete_noti_fi">Delete Notification</string>
 
     <!-- ============================================================================ -->
-    <!-- activity_help layout-->
+    <!--activity_faq layout-->
 
 </resources>
