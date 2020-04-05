@@ -46,7 +46,7 @@
     <string name="help_text">
 
         <font size="25"><font color="#8AB4EC"><b>TO GET STARTED</b></font></font>\n\n
-        <font size="20">Make sure to hit <i>Always Allow</i> in location settings for the Noti-Fi app,
+        <font size="20">Make sure to hit <i>Always Allow</i> in location settings-permissions for the Noti-Fi app,
             this only ensures that it can find your wi-fi connection. \n\n</font>
 
             <font size="20"><font color="#2AC8DF">
@@ -54,7 +54,7 @@
 
                ________________________________________________\n\n
 
-        <font size="25"><font color="#8AB4EC"><b>ADDING A NEW WIFI NAME</b></font></font>\n\n
+        <font size="25"><font color="#8AB4EC"><b>ADD A NEW WIFI NAME</b></font></font>\n\n
         <font size="20"><font color="#8AB4EC"><b>Step 1: </b></font>
                                                 Click <i>Manage Saved Wifi Names</i>\n\n
                         <font color="#8AB4EC"><b>Step 2: </b></font>
