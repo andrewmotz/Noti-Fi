@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PermissionsVideo"></activity>
+        <activity android:name=".PermissionsVideo"
+            android:parentActivityName=".HelpActivity"/>
         <activity
             android:name=".DeleteNotification"
             android:parentActivityName=".MainActivity" />
