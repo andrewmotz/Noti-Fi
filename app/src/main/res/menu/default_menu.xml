@@ -8,4 +8,7 @@
     <item
         android:id="@+id/help"
         android:title="Help" />
+    <item
+        android:id="@+id/service_start"
+        android:title="Start Helper" />
 </menu>

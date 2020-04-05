@@ -61,6 +61,7 @@ public class NotiFiService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
+        intent.putExtra("inputExtra", "NotiFi is waiting for network changes");
         String input = intent.getStringExtra("inputExtra");
         createNotificationChannel();
         Intent notificationIntent = new Intent(this, MainActivity.class);
