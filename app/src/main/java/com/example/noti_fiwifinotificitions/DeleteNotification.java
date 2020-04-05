@@ -1,6 +1,7 @@
 package com.example.noti_fiwifinotificitions;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,11 +50,14 @@ public class DeleteNotification extends AppCompatActivity implements AdapterView
     }
 
     public void deleteNotifi(View view){
-        String ssid = delSpinner.getSelectedItem().toString();
-        SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
-        savedNetworks.removeNotiFi(ssid);
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        Object selectedObject = delSpinner.getSelectedItem();
+        if(selectedObject != null) {
+            String ssid = selectedObject.toString();
+            SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
+            savedNetworks.removeNotiFi(ssid);
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
 
@@ -88,6 +92,9 @@ public class DeleteNotification extends AppCompatActivity implements AdapterView
             case R.id.faq:
                 showfaq();
                 return true;
+            case R.id.service_start :
+                startNotiFiService();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -103,4 +110,9 @@ public class DeleteNotification extends AppCompatActivity implements AdapterView
         startActivity(intent);
     }
 
+    private void startNotiFiService(){
+        Intent intentStarter = new Intent(this, NotiFiService.class);
+        intentStarter.putExtra("inputExtra", "NotiFi is waiting for network changes");
+        ContextCompat.startForegroundService(this, intentStarter);
+    }
 }
