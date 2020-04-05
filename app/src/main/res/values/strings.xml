@@ -42,9 +42,9 @@
     <string name="faq_text">
 
         <font size="25"><font color="#8AB4EC"><b>TO GET STARTED</b></font></font>\n\n
-        <font size="18">Make sure to hit <i>Always Allow</i> in location settings for the Noti-Fi app,
-            this only ensures that it can find your wi-fi connection.
-                    \n\* CHANGE THIS TO SHOW STEPS HOW TO DO\n\n</font>
+        <font size="20">Make sure to hit <i>Always Allow</i> in location settings for the Noti-Fi app,
+            this only ensures that it can find your wi-fi connection. \n\n</font>
+              insert GIF here\n\n
 
               ________________________________________________\n\n
 
