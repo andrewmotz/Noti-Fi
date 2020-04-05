@@ -19,6 +19,8 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PermissionsVideo"
+            android:parentActivityName=".HelpActivity"/>
         <activity
             android:name=".DeleteNotification"
             android:parentActivityName=".MainActivity" />
@@ -30,14 +32,15 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".FavoritesActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".AddNotificationActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -50,5 +53,5 @@
 
         <service android:name=".NotiFiService" />
     </application>
-    
+
 </manifest>
