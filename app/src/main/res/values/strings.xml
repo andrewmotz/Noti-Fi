@@ -91,25 +91,32 @@
 
     <string name="faq_text">
 
+        <font size="25"><font color="#8AB4EC"><b>How does the app work?</b></font></font>\n\n
+       <font size="20">When your phone connects to wifi, the app will see which network you connect to.
+        After it connects to a WiFi connection, it willcheck if you have made a notification for this wifi network.
+           If you have, it will send the reminder notification to your phone.\n\n</font>
+
         <font size="25"><font color="#8AB4EC"><b>Why Does This App Need Location Services?</b></font></font>\n\n
-        <font size="20">In order for the app to see when you connect to a WiFi network,
-            location services must be enabled and set to <i>always allow</i>.\n\n</font>
+        <font size="20">This app does not keep track of location or use any GPS data.
+            The only reason it requires location permissions in the foreground and background is
+            because the app needs to read the WiFi network names. Google does not allow apps to get
+            the name without location permissions.\n\n</font>
 
         <font size="25"><font color="#8AB4EC"><b>Does the app use GPS?</b></font></font>\n\n
-        <font size="20">Nope!\n\n</font>
+        <font size="20">Nope! This app does not keep track of location or use any GPS data.\n\n</font>
 
         <font size="25"><font color="#8AB4EC"><b>Why Is There A Running Notification?</b></font></font>\n\n
         <font size="20">Android now requires all apps running in the background to have an active notification.\n\n</font>
 
+        <font size="25"><font color="#8AB4EC"><b>Create a notification isn\'t working?</b></font></font>\n\n
+        <font size="20">In order to create a new notification, you must make sure that you have a Wifi name
+            saved for it first in <i>Manage Saved Wifi Names</i> from the Main page\n\n</font>
+
         <font size="25"><font color="#8AB4EC"><b>What is running in the background?</b></font></font>\n\n
         <font size="20">The task running in the background is waiting for a wifi change, nothing else.\n\n</font>
 
-        <font size="25"><font color="#8AB4EC"><b>How does the app work?</b></font></font>\n\n
-       <font size="20">When your phone connects to wifi, the app will see which network you connect to.
-        It will then check if you have made a notification for this wifi network. If you have, it will send the notification to your phone.\n\n</font>
-
         <font size="25"><font color="#8AB4EC"><b>Who Created This App?</b></font></font>\n\n
-        <font size="20">3 Thompson Rivers University students have made this app for a final project :).\n\n</font>
+        <font size="20">3 Thompson Rivers University students have made this app for a final project :)\n\n</font>
 
 
 
