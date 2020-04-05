@@ -23,6 +23,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class FavoritesActivity extends AppCompatActivity {
 
@@ -59,11 +60,14 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     public void manualEntry(View view){
-        FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
-        favSSIDS.addFavSSID("\"" + manualEntryEditText.getText().toString() + "\"");
-        manualEntryEditText.setText("");
-        updateLists();
-        hideKeyboard();
+        String enteredSSID = manualEntryEditText.getText().toString();
+        if(enteredSSID.length() > 0) {
+            FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
+            favSSIDS.addFavSSID("\"" + enteredSSID +"\"");
+            manualEntryEditText.setText("");
+            updateLists();
+            hideKeyboard();
+        }
     }
 
     //Get SSID
@@ -108,6 +112,7 @@ public class FavoritesActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.default_menu, menu);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Manage Networks");
         return true;
     }
 
