@@ -78,6 +78,7 @@
             <font color="#8AB4EC">Step 2:</font> Select the Wifi network for the notification that you want to delete\n\n
             <font color="#8AB4EC">Step 3:</font> Click <i>Delete</i>\n\n</font>
     </string>
+    <string name="delete_noti_fi">Delete Notification</string>
 
     <!-- ============================================================================ -->
     <!-- activity_help layout-->
