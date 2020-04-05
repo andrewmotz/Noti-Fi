@@ -97,7 +97,7 @@
         <font size="25"><font color="#8AB4EC"><b>Does the app use GPS?</b></font></font>\n\n
         <font size="20">Nope!\n\n</font>
 
-        <font size="25"><font color="#8AB4EC"><b>Why Is There A Notification Always On?</b></font></font>\n\n
+        <font size="25"><font color="#8AB4EC"><b>Why Is There A Running Notification?</b></font></font>\n\n
         <font size="20">Android now requires all apps running in the background to have an active notification.\n\n</font>
 
         <font size="25"><font color="#8AB4EC"><b>What is running in the background?</b></font></font>\n\n
