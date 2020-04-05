@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         savedNotiFisList = findViewById(R.id.savedNotiFisList);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, savedNetworks.getCombinedList());
         savedNotiFisList.setAdapter(arrayAdapter);
+        //animation transition
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -75,16 +77,19 @@ public class MainActivity extends AppCompatActivity {
     public void createNotifi(View view) {
         Intent intent = new Intent(this, AddNotificationActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void manageFavourites(View view){
         Intent intent = new Intent(this, FavoritesActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void deleteNotiFi(View view){
         Intent intent = new Intent(this, DeleteNotification.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void updateList() {

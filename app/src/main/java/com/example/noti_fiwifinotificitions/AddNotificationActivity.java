@@ -101,4 +101,8 @@ public class AddNotificationActivity extends AppCompatActivity {
         intentStarter.putExtra("inputExtra", "NotiFi is waiting for network changes");
         ContextCompat.startForegroundService(this, intentStarter);
     }
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+    }
 }
