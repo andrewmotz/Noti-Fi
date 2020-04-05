@@ -60,7 +60,6 @@ public class DeleteNotification extends AppCompatActivity implements AdapterView
         }
     }
 
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String ssid = delSpinner.getItemAtPosition(position).toString();

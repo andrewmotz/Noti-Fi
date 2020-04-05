@@ -89,7 +89,6 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     public void DeleteSelected(View view){
-
         Object selectedObject = favSpinner.getSelectedItem();
         if(selectedObject != null) {
             String selected = selectedObject.toString();
