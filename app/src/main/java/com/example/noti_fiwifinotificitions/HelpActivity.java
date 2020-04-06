@@ -37,13 +37,11 @@ public class HelpActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.permissions_vid:
-                showVideo();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.permissions_vid) {
+            showVideo();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void showVideo(){

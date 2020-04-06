@@ -11,14 +11,12 @@ import java.util.Objects;
 
 public class FAQActivity extends AppCompatActivity {
 
-    private TextView faqtext;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
 
-        faqtext = findViewById(R.id.faq_text);
+        TextView faqtext = findViewById(R.id.faq_text);
 
         faqtext.setMovementMethod(new ScrollingMovementMethod());
     }
