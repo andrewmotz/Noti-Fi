@@ -4,11 +4,11 @@
 
     <item
         android:id="@+id/faq"
-        android:title="FAQ" />
+        android:title="@string/menu_faq" />
     <item
         android:id="@+id/help"
-        android:title="Help" />
+        android:title="@string/menu_help" />
     <item
         android:id="@+id/service_start"
-        android:title="Start Helper" />
+        android:title="@string/start_helper_service" />
 </menu>
