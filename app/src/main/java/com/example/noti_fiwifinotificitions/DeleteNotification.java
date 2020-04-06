@@ -19,8 +19,9 @@ import java.util.Objects;
 
 public class DeleteNotification extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    Spinner delSpinner;
-    TextView ssidText, descText;
+    private Spinner delSpinner;
+    private TextView ssidText;
+    private TextView descText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class DeleteNotification extends AppCompatActivity implements AdapterView
         delSpinner = findViewById(R.id.deleteSpinner);
         delSpinner.setOnItemSelectedListener(this);
 
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, getNotiFiSSIDs());
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getNotiFiSSIDs());
         spinnerAdapter.setDropDownViewResource(R.layout.my_spinner);
         delSpinner.setAdapter(spinnerAdapter);
     }
@@ -41,7 +42,7 @@ public class DeleteNotification extends AppCompatActivity implements AdapterView
     private ArrayList<String> getNotiFiSSIDs(){
         SavedNetworks savedNetworks = new SavedNetworks(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         ArrayList<NotiFiObject> notiFiObjects = savedNetworks.getNotiFiObjects();
-        ArrayList<String> notifissids = new ArrayList<String>();
+        ArrayList<String> notifissids = new ArrayList<>();
 
         for (NotiFiObject notiFiObject: notiFiObjects) {
             notifissids.add(notiFiObject.getSSID());

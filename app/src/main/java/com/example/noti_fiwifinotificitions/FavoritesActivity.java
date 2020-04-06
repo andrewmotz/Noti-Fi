@@ -29,9 +29,9 @@ import java.util.Objects;
 public class FavoritesActivity extends AppCompatActivity {
 
     private static final int LOCATION = 1;
-    Spinner favSpinner;
-    ListView favListView;
-    EditText manualEntryEditText;
+    private Spinner favSpinner;
+    private ListView favListView;
+    private EditText manualEntryEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class FavoritesActivity extends AppCompatActivity {
         //Fill spinner
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         ArrayList<String> favList = favSSIDS.getFavSSIDList();
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, favList);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, favList);
         spinnerAdapter.setDropDownViewResource(R.layout.my_spinner);
         favSpinner.setAdapter(spinnerAdapter);
 
@@ -80,7 +80,7 @@ public class FavoritesActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION);
         }else{//Permission already granted
             WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
-            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            WifiInfo wifiInfo = Objects.requireNonNull(wifiManager).getConnectionInfo();
             if(wifiInfo.getSupplicantState() == SupplicantState.COMPLETED){
                 ssid = wifiInfo.getSSID();//Here you can access your SSID
             }
@@ -103,7 +103,7 @@ public class FavoritesActivity extends AppCompatActivity {
         //Fill spinner
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         ArrayList<String> favList = favSSIDS.getFavSSIDList();
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, favList);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, favList);
         spinnerAdapter.setDropDownViewResource(R.layout.my_spinner);
         favSpinner.setAdapter(spinnerAdapter);
 
@@ -159,7 +159,9 @@ public class FavoritesActivity extends AppCompatActivity {
         View view = this.getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            if (imm != null) {
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
         }
     }
     //onBackPressed is the bottom back arrow. Control for the top back button is done in mainActivity

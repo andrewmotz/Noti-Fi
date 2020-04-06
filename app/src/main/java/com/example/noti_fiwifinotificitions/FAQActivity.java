@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class FAQActivity extends AppCompatActivity {
 
-    TextView faqtext;
+    private TextView faqtext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

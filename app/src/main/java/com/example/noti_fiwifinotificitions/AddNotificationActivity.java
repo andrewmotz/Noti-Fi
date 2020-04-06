@@ -19,8 +19,8 @@ import java.util.Objects;
 public class AddNotificationActivity extends AppCompatActivity {
 
     private  final String select_A_Network = "Select a network:";
-    Spinner networkSpinner;
-    EditText contentText;
+    private Spinner networkSpinner;
+    private EditText contentText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class AddNotificationActivity extends AppCompatActivity {
         FavSSIDS favSSIDS = new FavSSIDS(getSharedPreferences(MainActivity.NOTI_FI_PREF, MODE_PRIVATE));
         ArrayList<String> favList = favSSIDS.getFavSSIDList();
         favList.add(0, select_A_Network);
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, favList);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, favList);
         spinnerAdapter.setDropDownViewResource(R.layout.my_spinner);
         networkSpinner.setAdapter(spinnerAdapter);
     }
