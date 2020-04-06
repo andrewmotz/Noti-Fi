@@ -37,7 +37,7 @@ public class SavedNetworks extends AppCompatActivity {
         }else{
             Log.d("NOTIFI","EMPTY Shared Preference NOTIFIS");
             notiFiObjects = new ArrayList<>();
-            notiFiObjects.add(new NotiFiObject("EMTPY SSID", "EMPTY DESC"));
+            notiFiObjects.add(new NotiFiObject("Example network Name", "Go to \"Manage saved Wifi Names\" to add your own networks!"));
         }
     }
 
